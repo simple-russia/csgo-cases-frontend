@@ -1,0 +1,25 @@
+.main {
+    width: 700px;
+    min-height: calc(100vh - 60px);
+    margin: 60px auto 0;
+    --color: rgb(15, 15, 26);
+    background-image: linear-gradient( var(--color) , var(--color) );
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.main-cont {
+    width: 100%;
+    background-color: red;
+    height: inherit;
+}
+
+.bg {
+    width: 700px;
+    height: 100vh;
+    position: fixed;
+
+    background-image: url('bg.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+}
