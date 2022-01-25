@@ -18,8 +18,10 @@ const Footer = (props) => {
 
     return (
         <footer className='footer'>
-
-            { links_info.map( block => <LinkBlock block={block} />) }
+            
+            <div className="block-links-cont">
+                { links_info.map( block => <LinkBlock block={block} />) }
+            </div>
 
             <div className={styles.logo}>
                 <NavLink to="/cases">

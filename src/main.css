@@ -1,3 +1,22 @@
-.logo-cont {
-    width: 100px;
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+body::-webkit-scrollbar {
+    background: rgb(38, 44, 54);
+    width: 15px;
+    padding: 3px;
+    box-shadow: inset 0 0 12px 0px rgba(0, 0, 0, 0.8);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgb(53, 63, 88);
+    margin: 3px;
+    border-radius: 4px;
+    box-shadow: inset 2px 2px 2px 0 rgba(130, 188, 206, 0.15);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(35, 44, 66);
+    box-shadow: inset 2px 2px 2px 0 rgba(130, 188, 206, 0.05);
 }

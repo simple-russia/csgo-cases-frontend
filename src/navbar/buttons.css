@@ -1,0 +1,23 @@
+.icon-cont {
+    height: 100%;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.icon-cont:hover {
+    cursor: pointer;
+    filter: brightness(0.6);
+}
+
+.navigaton-links-icon {
+    width: 20px;
+    height: 15px;
+    background-image: url('menu.svg');
+}
+
+.settings-icon {
+    width: 18px;
+    height: 18px;
+    background-image: url('gear.svg');
+}

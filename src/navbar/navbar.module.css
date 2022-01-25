@@ -5,6 +5,9 @@
     border-bottom: 1px solid #26263a;
 
     position: fixed;
+    display: flex;
+    z-index: 20;
+    justify-content: space-between;
     top: 0;
 }
 
