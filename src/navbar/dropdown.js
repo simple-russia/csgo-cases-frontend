@@ -1,4 +1,8 @@
 import React, {useRef, useEffect} from "react";
+import links from './links';
+import { NavLink, useLocation } from "react-router-dom";
+import './dropdown_links.css';
+import Settings from "./Settings";
 
 const Dropdown = (props) => {
     if (!props.dropdownCurrent) {
@@ -11,12 +15,17 @@ const Dropdown = (props) => {
             <div className="cross-icon"></div>
         </div>
 
-        {props.dropdownCurrent == 'settings'?
-            "settings here :>"
-        : ''}
+        {props.dropdownCurrent == 'settings'? <>
+            <Settings />
+        </> : ''}
 
         {props.dropdownCurrent == 'navigation-links'?
-            "navigation here :>"
+            <div className="dropdown-links">
+                {links.map( (link, index) =>
+                <NavLink key={index} to={link.to} onClick={props.closeFn}>
+                    {link.name.toUpperCase()}
+                </NavLink>)}
+            </div>
         : ''}
 
     </div>

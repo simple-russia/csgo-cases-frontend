@@ -8,7 +8,7 @@ const LinkBlock = (props) => {
     return (
         <div className='link-block'>
             <span>{props.block.blockName}</span>
-            { props.block.links.map( link => <a href={link.href} >{link.linkName}</a> ) }
+            { props.block.links.map( (link, index) => <a key={index} href={link.href} >{link.linkName}</a> ) }
         </div>
     )
 }
@@ -20,7 +20,7 @@ const Footer = (props) => {
         <footer className='footer'>
             
             <div className="block-links-cont">
-                { links_info.map( block => <LinkBlock block={block} />) }
+                { links_info.map( (block, index) => <LinkBlock key={index} block={block} />) }
             </div>
 
             <div className={styles.logo}>
