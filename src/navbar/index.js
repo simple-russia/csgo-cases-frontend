@@ -9,8 +9,6 @@ import NavLinks from './nav_links';
 import Button from './button/button';
 import Dropdown from './dropdown';
 
-
-
 const Navbar = (props) => { 
 
   const navRef = useRef();

@@ -2,19 +2,25 @@ import React, {useState, useRef} from "react";
 import { useEffect } from "react/cjs/react.development";
 import './language.css';
 import languages_list from './languages';
+import { useDispatch, useSelector } from "react-redux";
 
 const Language = (props) => {
 
     const [opened, setOpened] = useState(false);
-    const [lang, setLang] = useState(languages_list[1]);
+    // const [lang, setLang] = useState(languages_list[1]);
     const lang_list = useRef();
     const lang_cont = useRef();
 
-    const open = (e) => {
+    const langShort = useSelector(state => state.language);
+    const setLang = useDispatch();
+
+    const lang = languages_list.filter( language => language.short == langShort )[0];
+
+    const open = (e) => { // open the list of languages
         setOpened(prev => !prev);
     }
 
-    const choose = (e) => {
+    const choose = (e) => { // chose a language
         e.stopPropagation();
 
         // find all the lang buttons of the list
@@ -27,7 +33,7 @@ const Language = (props) => {
             const new_lang = lang_item[0].getAttribute('data-short')
             
             const lang_obj = languages_list[new_lang];
-            setLang(lang_obj);
+            setLang( {type: "SET_LANGUAGE", payload: lang_obj.short} ); // sets the language global state (ru/en/es/...)
 
             setOpened(false);
         }

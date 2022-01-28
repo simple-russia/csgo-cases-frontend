@@ -6,27 +6,12 @@ const languages_list = [
     },
     {
         name: "Русский",
-        short: "en",
+        short: "ru",
         flag: "russia",
     },
     {
         name: "Español",
-        short: "en",
-        flag: "spain",
-    },
-    {
-        name: "English",
-        short: "en",
-        flag: "usa",
-    },
-    {
-        name: "Русский",
-        short: "en",
-        flag: "russia",
-    },
-    {
-        name: "Español",
-        short: "en",
+        short: "es",
         flag: "spain",
     },
 ]

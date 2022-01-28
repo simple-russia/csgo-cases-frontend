@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import React, { useState, useEffect } from "react";
 import './volume.css';
 import Language from "./language";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Settings = (props) => {
 
-    const [volume, setVolume] = useState(0.5); // standard volume
 
-    const volumeInput = (e) => {
+    const dispatch = useDispatch();
+    const volume = useSelector( state => state.volume );
+
+    const volumeInput = (e) => { // global state volume setting changing
         const newVolume = e.target.value;
-        // console.log(newVolume)
-        setVolume( newVolume );
+        console.log(newVolume);
+        dispatch( { type: "SET_VOLUME", payload: newVolume } );
     }
-
-    useEffect(() => {
-        setVolume(40);
-    }, [])
 
     return (
         <div className="settings-cont">
-            <h1 className="settings-label">Language:</h1>
+            <h1 className="settings-label">Languge:</h1>
             <Language />
             
             <div className="volume-cont">
