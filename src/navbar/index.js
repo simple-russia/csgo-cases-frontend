@@ -1,12 +1,16 @@
 import React, {useState, useRef, useEffect} from 'react'; 
 import { NavLink } from 'react-router-dom';
+
+import NavLinks from './nav_links';
+import Button from './button/button';
+import Dropdown from './dropdown';
+import Logo from 'Components/logo';
+
 import './navbar.scss';
 import './balance.css';
 import './buttons.css';
 import './dropdown.css';
-import NavLinks from './nav_links';
-import Button from './button/button';
-import Dropdown from './dropdown';
+
 
 const Navbar = (props) => { 
 
@@ -45,11 +49,7 @@ const Navbar = (props) => {
   return ( 
     <nav className="navbar" ref={navRef}>
 
-      <div className='logo-cont'>
-        <NavLink to="/cases">
-          <img className="logo" src="logo.png" draggable="false"></img>
-        </NavLink>
-      </div>
+      <Logo />
 
 
       { nav_width > children_width ? <NavLinks /> : '' }

@@ -1,8 +1,9 @@
 import React from 'react';
-import './footer.css';
 import links_info from './links';
-import styles from './logo.module.css';
-import { NavLink } from 'react-router-dom';
+import Logo from 'Components/logo';
+
+import './footer.scss';
+
 
 const LinkBlock = (props) => {
     return (
@@ -13,21 +14,19 @@ const LinkBlock = (props) => {
     )
 }
 
-const Footer = (props) => {
 
+const Footer = (props) => {
 
     return (
         <footer className='footer'>
             
             <div className="block-links-cont">
-                { links_info.map( (block, index) => <LinkBlock key={index} block={block} />) }
+                { links_info.map( (block, index) =>
+                    <LinkBlock key={index} block={block} />
+                )}
             </div>
 
-            <div className={styles.logo}>
-                <NavLink to="/cases">
-                    <img src="logo.png" draggable="false"></img>
-                </NavLink>
-            </div>
+            <Logo />
 
         </footer>
     )

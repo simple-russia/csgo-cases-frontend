@@ -14,8 +14,8 @@ module.exports = {
    },
    resolve: {
     alias: {
-      Jstest: path.resolve(__dirname, 'src/jstest/'),
-      Img: path.resolve(__dirname, 'src/img/'),
+      Components: path.resolve(__dirname, 'src/_components/'),
+      Img: path.resolve(__dirname, 'src/_img/'),
     }
    },
    module: {  
@@ -44,7 +44,7 @@ module.exports = {
          },
          // third rule
          {
-           test: /\.jpg$/,
+           test: /\.(jpg|png|svg)$/,
            type: 'asset/resource',
          }
 
