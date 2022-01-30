@@ -38,16 +38,19 @@
     justify-content: center;
     align-items: center; 
     cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.5);
+    }
 }
-.dropdown-cross:hover {
-    filter: brightness(0.5);
-}
+
 
 .cross-icon {
     width: 20px;
     height: 20px;
     background-image: url('Img/cross.svg');
 }
+
 
 @media (max-width: 500px) {
     .dropdown-cont {
@@ -62,3 +65,4 @@
     }
 
 }
+

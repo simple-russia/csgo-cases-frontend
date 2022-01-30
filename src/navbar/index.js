@@ -1,15 +1,11 @@
 import React, {useState, useRef, useEffect} from 'react'; 
-import { NavLink } from 'react-router-dom';
 
-import NavLinks from './nav_links';
-import Button from './button/button';
+import NavLinks from './navlinks';
 import Dropdown from './dropdown';
 import Logo from 'Components/logo';
 
 import './navbar.scss';
-import './balance.css';
-import './buttons.css';
-import './dropdown.css';
+import RightBlock from './right_block';
 
 
 const Navbar = (props) => { 
@@ -17,23 +13,30 @@ const Navbar = (props) => {
   const navRef = useRef();
   const [nav_width, setNav_width] = useState(document.documentElement.clientWidth || document.body.clientWidth); // width of Navbar
   const [children_width, setChildren_width] = useState(0); // width of all of Navbar's children, even not rendered ones
-  const [dropdown, setDropdown] = useState('');
-
-  const resize_m  = () => {
+  const [dropdown, setDropdown] = useState(''); // '' to render no dropdown, 'settings' to render settings dropdown, etc
+  
+  // nav_width state is always equal to navbar's/window's width 
+  const resize_check  = () => {
     setNav_width(navRef.current.clientWidth);
   }
 
   useEffect( () => {
-    resize_m();
-    window.onresize = resize_m;
+    // put resize_check on listener + dropdown outer click handler
+    resize_check();
+    window.addEventListener('resize', resize_check);
     document.addEventListener('click', closeOutClick);
 
+    // render children and find out their width (fully rendered)
     let width = 0;
     for (let i of navRef.current.children) {
       width += i.clientWidth;
     }
     setChildren_width(width);
   }, [])
+
+  const closeDropdown = () => {
+    setDropdown('');
+  }
 
   const closeOutClick = (e) => { // for when user clicks outside the dropdown block
     for (let i of document.body.querySelectorAll(".dropdown-cont") ) { 
@@ -43,37 +46,25 @@ const Navbar = (props) => {
       if (element.contains(e.target)) { return ; }
     }
 
-    setDropdown('')
+    closeDropdown();
   }
   
+  useEffect( () => {
+    console.log(dropdown)
+  }, [dropdown])
+
   return ( 
     <nav className="navbar" ref={navRef}>
 
       <Logo />
 
-
       { nav_width > children_width ? <NavLinks /> : '' }
 
+      <RightBlock setDropdown={setDropdown} isMobile={nav_width <= children_width} />
 
-      <div className = "right-cont">
-
-        <div className='balance-cont'>
-          <span className='balance'>1000.00</span>
-          <NavLink to="/balance">
-            <div className='balance-icon'></div>
-          </NavLink>
-        </div>
-
-
-        <Button name="settings" clickFn={ ()=>{setDropdown(prev => prev === "settings"? "" : "settings" )} } />
-
-        { nav_width <= children_width ? 
-          <Button name="navigation-links" clickFn={ ()=>{setDropdown(prev => prev == 'navigation-links'? "" : 'navigation-links')} } />
-        : '' }
-
-      </div>
-
-      <Dropdown dropdownCurrent={dropdown} isMobile={!(nav_width > children_width)} closeFn={()=>setDropdown("")} />
+      {dropdown ?
+        <Dropdown dropdownCurrent={dropdown} closeFn={closeDropdown} />
+      : '' }
 
     </nav>
   ); 

@@ -1,5 +1,5 @@
 import React from 'react';
-import links_info from './links';
+import links from './links';
 import Logo from 'Components/logo';
 
 import './footer.scss';
@@ -21,7 +21,7 @@ const Footer = (props) => {
         <footer className='footer'>
             
             <div className="block-links-cont">
-                { links_info.map( (block, index) =>
+                { links.map( (block, index) =>
                     <LinkBlock key={index} block={block} />
                 )}
             </div>

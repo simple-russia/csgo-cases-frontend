@@ -4,11 +4,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &:hover {
+        cursor: pointer;
+        filter: brightness(0.6);
+    }
 }
-.icon-cont:hover {
-    cursor: pointer;
-    filter: brightness(0.6);
-}
+
 
 .navigation-links-icon {
     width: 20px;
