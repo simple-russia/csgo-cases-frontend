@@ -27,7 +27,7 @@
 .language-arrow-icon {
     width: 15px;
     height: 8px;
-    background-image: url('arrow_down.svg');
+    background-image: url('Img/arrow_down.svg');
     background-repeat: no-repeat;
 }
 
@@ -46,7 +46,7 @@
     align-items: center;
 }
 .language-icon {
-    background-image: url('usa_flag.svg');
+    background-image: url('Img/usa_flag.svg');
     width: 40px;
     height: 23px;
     background-repeat: no-repeat;
@@ -134,13 +134,13 @@
 }
 
 div[data-flag="usa"] {
-    background-image: url('usa_flag.svg');
+    background-image: url('Img/usa_flag.svg');
 }
 div[data-flag="russia"] {
-    background-image: url('russia_flag.svg');
+    background-image: url('Img/russia_flag.svg');
 }
 div[data-flag="spain"] {
-    background-image: url('spain_flag.svg');
+    background-image: url('Img/spain_flag.svg');
 }
 
 .language-item-name {

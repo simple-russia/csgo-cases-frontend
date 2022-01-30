@@ -3,6 +3,7 @@ import { useEffect } from "react/cjs/react.development";
 import './language.css';
 import languages_list from './languages';
 import { useDispatch, useSelector } from "react-redux";
+// import deku from "Img/deku.jpg";
 
 const Language = (props) => {
 
@@ -44,7 +45,7 @@ const Language = (props) => {
             // console.log(e.target, lang_cont.current);
 
             try {
-                if ( !opened && lang_cont.current.contains(e.target) ) { // if clicked withing the lang list then do nothing
+                if ( !opened && lang_cont.current && lang_cont.current.contains(e.target) ) { // if clicked withing the lang list then do nothing
                     return ;
                 }
             } catch (err) {

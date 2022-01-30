@@ -13,11 +13,11 @@
 .navigation-links-icon {
     width: 20px;
     height: 15px;
-    background-image: url('menu.svg');
+    background-image: url('Img/menu.svg');
 }
 
 .settings-icon {
     width: 18px;
     height: 18px;
-    background-image: url('gear.svg');
+    background-image: url('Img/gear.svg');
 }

@@ -13,6 +13,6 @@ const App = (props) => {
     <Footer />
   </>
   ); 
-}; 
+};
   
 export default App; 

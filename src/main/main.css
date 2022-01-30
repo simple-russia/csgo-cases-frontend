@@ -26,7 +26,12 @@
     height: 100vh;
     position: fixed;
 
-    background-image: url('bg.png');
+    background-image: url('Img/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+body {
+    margin: 0;
+    background-image: url('Img/noisy_bg.png');
 }

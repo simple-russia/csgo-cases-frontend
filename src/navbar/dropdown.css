@@ -46,7 +46,7 @@
 .cross-icon {
     width: 20px;
     height: 20px;
-    background-image: url('cross.svg');
+    background-image: url('Img/cross.svg');
 }
 
 @media (max-width: 500px) {

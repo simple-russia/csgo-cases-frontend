@@ -6,7 +6,11 @@ const TerserPlugin = require('terser-webpack-plugin');
    
    
 module.exports = merge(common, {  
-   
+
+    output: {
+      // publicPath: "https://cdn-ru.alinguo.com/assets/",
+    },
+
     mode: "production",  
    
     optimization: {  
@@ -15,5 +19,13 @@ module.exports = merge(common, {
         new TerserPlugin(),  
       ],  
       minimize: true, // minify CSS and JS  
-    },  
+    },
+
+    // module: {
+    //   generator: {
+    //     "javascript/auto": {
+    //       publicPath: "js/"
+    //     }
+    //   }
+    // },
 });  

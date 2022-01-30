@@ -1,7 +1,6 @@
 import React, {useState, useRef, useEffect} from 'react'; 
-import styles from './navbar.module.css';
 import { NavLink } from 'react-router-dom';
-import './navbar.css';
+import './navbar.scss';
 import './balance.css';
 import './buttons.css';
 import './dropdown.css';
@@ -32,10 +31,6 @@ const Navbar = (props) => {
     setChildren_width(width);
   }, [])
 
-  // useEffect( () => {
-  //   console.log(children_width, nav_width, dropdown)
-  // })
-
   const closeOutClick = (e) => { // for when user clicks outside the dropdown block
     for (let i of document.body.querySelectorAll(".dropdown-cont") ) { 
       if (i.contains(e.target)) { return ; }
@@ -48,7 +43,7 @@ const Navbar = (props) => {
   }
   
   return ( 
-    <nav className={styles.navbar} ref={navRef}>
+    <nav className="navbar" ref={navRef}>
 
       <div className='logo-cont'>
         <NavLink to="/cases">

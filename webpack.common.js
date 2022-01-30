@@ -11,32 +11,49 @@ module.exports = {
    output: {  
        filename: '[name].[hash].js',  
        path: path.resolve(__dirname, "build"),  
-   },  
+   },
+   resolve: {
+    alias: {
+      Jstest: path.resolve(__dirname, 'src/jstest/'),
+      Img: path.resolve(__dirname, 'src/img/'),
+    }
+   },
    module: {  
        rules: [  
          // First Rule  
          {  
-           test: /\.(js)$/,  
+           test: /\.(js)$/i,  
            exclude: /node_modules/,  
            use: [  
              'babel-loader',  
-           ]  
+           ],
          },  
          // Second Rule  
          {  
            test: /\.s?css$/,  
            use: [  
-             MiniCssExtractPlugin.loader,  
+             {
+               loader: MiniCssExtractPlugin.loader,
+               options: {
+                //  publicPath: 'https://a.com/css/'   // it works only with assets inside css
+               }
+             },  
              'css-loader',  
              'sass-loader',  
-           ]  
-         }  
+           ],
+         },
+         // third rule
+         {
+           test: /\.jpg$/,
+           type: 'asset/resource',
+         }
+
        ]  
    },  
    plugins: [  
      new HtmlWebpackPlugin({  
        template: 'public/index.html',  
-       minify: true, // minify HTML  
+       minify: true, // minify HTML 
      }),  
      new MiniCssExtractPlugin({filename: "[name].[hash].css"})  
    ],  
