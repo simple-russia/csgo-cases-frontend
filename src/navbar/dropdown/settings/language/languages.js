@@ -15,34 +15,14 @@ const languages_list = [
         flag: "spain",
     },
     {
-        name: "English",
-        short: "en",
-        flag: "usa",
+        name: "Deutsch",
+        short: "de",
+        flag: "germany",
     },
     {
-        name: "Русский",
-        short: "ru",
-        flag: "russia",
-    },
-    {
-        name: "Español",
-        short: "es",
-        flag: "spain",
-    },
-    {
-        name: "English",
-        short: "en",
-        flag: "usa",
-    },
-    {
-        name: "Русский",
-        short: "ru",
-        flag: "russia",
-    },
-    {
-        name: "Español",
-        short: "es",
-        flag: "spain",
+        name: "Português",
+        short: "pt",
+        flag: "portugal",
     },
 ]
 

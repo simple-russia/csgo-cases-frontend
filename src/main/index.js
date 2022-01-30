@@ -5,11 +5,8 @@ import { useSelector } from 'react-redux';
   
 const Main = (props) => { 
 
-  const ln = useSelector(state => state.language); // to trigger language changing
+  useSelector(state => state.language); // to trigger language changing
 
-  useEffect( () => {
-    console.log('rerender!')
-  })
   return ( 
     <div className="main">
       <div className="bg"></div>
