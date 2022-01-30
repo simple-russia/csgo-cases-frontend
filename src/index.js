@@ -1,15 +1,9 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
 import App from './App';
-import {BrowserRouter as Router, Link, Routes, Route} from 'react-router-dom';
-import { createStore } from 'redux';
-import rootReducer from './reducer';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-let store = createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+import store from 'Redux';
 
 ReactDOM.render(
 <Router>

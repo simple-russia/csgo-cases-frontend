@@ -16,6 +16,8 @@ module.exports = {
     alias: {
       Components: path.resolve(__dirname, 'src/_components/'),
       Img: path.resolve(__dirname, 'src/_img/'),
+      Translator: path.resolve(__dirname, 'src/_translator'),
+      Redux: path.resolve(__dirname, 'src/_redux'),
     }
    },
    module: {  

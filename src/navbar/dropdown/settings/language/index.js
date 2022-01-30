@@ -35,7 +35,8 @@ const Language = (props) => {
             
             const lang_obj = languages_list[new_lang];
             setLang( {type: "SET_LANGUAGE", payload: lang_obj.short} ); // sets the language global state (ru/en/es/...)
-
+            window.localStorage.setItem('language', lang_obj.short);
+            window.location.reload();
             setOpened(false);
         }
     }
