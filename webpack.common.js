@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {  
    entry: {  
      'main': { import: "./src/index.js", dependOn: 'vendor'},  
-     'vendor': { import: "./src/vendor.js" },  
+     'vendor': { import: "./vendor.js" },  
    },  
    output: {  
        filename: '[name].[hash].js',  
