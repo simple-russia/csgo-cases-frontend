@@ -3,12 +3,17 @@ import { useEffect } from "react/cjs/react.development";
 import './language.css';
 import languages_list from './languages';
 import { useDispatch, useSelector } from "react-redux";
-// import deku from "Img/deku.jpg";
+import ModalLanguage from "./modal";
 
 const Language = (props) => {
 
     const [opened, setOpened] = useState(false);
-    // const [lang, setLang] = useState(languages_list[1]);
+    
+    const [modalOpened, setModalOpened] = useState([false, '']);
+    const closeModal = () => {
+        setModalOpened([false, '']);
+    }
+
     const lang_list = useRef();
     const lang_cont = useRef();
 
@@ -21,6 +26,7 @@ const Language = (props) => {
         setOpened(prev => !prev);
     }
 
+    let newLang; // for modal to work
     const choose = (e) => { // chose a language
         e.stopPropagation();
 
@@ -34,10 +40,16 @@ const Language = (props) => {
             const new_lang = lang_item[0].getAttribute('data-short')
             
             const lang_obj = languages_list[new_lang];
-            setLang( {type: "SET_LANGUAGE", payload: lang_obj.short} ); // sets the language global state (ru/en/es/...)
+            if (langShort == lang_obj.short) {
+                return ; // we choose the language that we already have active so leave the fn
+            }
+            // setLang( {type: "SET_LANGUAGE", payload: lang_obj.short} ); // sets the language global state (ru/en/es/...)
             window.localStorage.setItem('language', lang_obj.short);
-            window.location.reload();
+            // window.location.reload();
+
             setOpened(false);
+            setModalOpened([true, lang_obj.short])
+
         }
     }
 
@@ -88,6 +100,9 @@ const Language = (props) => {
                 )}
             </div>
             }
+
+            {modalOpened[0] && modalOpened[1] && <ModalLanguage closeFn={closeModal} newLang={modalOpened[1]} />}
+
         </div>
     )
 }

@@ -8,4 +8,6 @@ export default {
     'navlink-about': 'Con projecto',
 
     'language': 'Idioma',
+
+    'navbar/change-language': "¿Está seguro de que desea cambiar el idioma de la aplicación a"
 }

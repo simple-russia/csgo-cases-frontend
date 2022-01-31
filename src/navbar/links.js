@@ -1,42 +1,27 @@
 
-import store from 'Redux';
 import Translate from 'Translator/tr';
 
 const links = [
     {
       to: "/cases",
-      link: "cases",
-      // name: "cases",
+      name: Translate('navlink-cases')
     },
     {
       to: "/inventory",
-      link: "inventory",
-      // name: "inventory",
+      name: Translate("navlink-inventory"),
     },
     {
       to: "/contracts",
-      link: "contracts",
-      // name: "contracts",
+      name: Translate("navlink-contracts"),
     },
     {
       to: "/statistics",
-      link: "statistics",
-      // name: "statistics",
+      name: Translate("navlink-statistics"),
     },
     {
       to: "/about",
-      link: "about",
-      // name: "about",
+      name: Translate("navlink-about"),
     },
 ];
-
-const changeLang = () => {
-  links[0].name  = Translate('navlink-cases')
-  for (let i of links) {
-    i.name = Translate(`navlink-${i.link}`)
-  }
-}
-store.subscribe(changeLang)
-changeLang();
 
 export default links;

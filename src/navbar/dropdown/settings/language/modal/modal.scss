@@ -1,0 +1,217 @@
+
+
+.language-modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(7, 6, 15, 0.98);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+        width: 600px;
+        // height: 400px;
+        background-color: rgb(17, 17, 27);
+        border-radius: 8px;
+        border: 1px rgb(39, 44, 58) solid;
+        overflow: hidden;
+    }
+}
+
+
+
+
+.modal-upper-cont {
+    width: 100%;
+    height: 120px;
+    background-color: rgb(27, 27, 41);
+    border-bottom: 1px solid rgb(39, 44, 58);
+    padding: 1px;
+    display: flex;
+    justify-content: center;
+    
+    > div {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        // width: 200px;
+        // height: 50px;
+
+        > .flag {
+            width: 66px;
+            height: 40px;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        > .language-arrow {
+            background-image: url('Img/arrow_right.svg');
+            width: 50px;
+            height: 20px;
+            margin: 0 20px;
+            background-repeat: no-repeat;
+            transform: translateY(4px);
+        }
+    }
+}
+
+
+.modal-middle-cont {
+    color: rgb(118, 130, 145);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 20px 70px 30px;
+    text-align: center;
+    line-height: 30px;
+    
+    > span {
+        font-weight: bold;
+        // text-decoration: underline;
+        font-size: 18px;
+        color: #b3c6dd;
+        margin: 0 5px;
+
+        &::after {
+            content: '?';
+            color: rgb(118, 130, 145);
+            font-size: 20px;
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.modal-downer-cont {
+    width: 100%;
+
+    > div {
+        padding: 0px 100px 20px;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            width: 190px;
+            height: 40px;
+            border-radius: 4px;
+            font-size: 15px;
+            outline: none;
+            border: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+
+            &.confirm {
+                background-color: #3b6e88;
+                color: rgb(225, 236, 238);
+
+                &:hover {
+                    // background-color: #213742;
+                    // color: rgb(185, 198, 201);
+                    filter: brightness(0.55);
+                }
+            }
+
+            &.cancel {
+                background-color: #00000000;
+                color: rgba(225, 236, 238, 0.5);
+                box-shadow: inset 0 0 0 1px rgba(202, 208, 209, 0.5);
+                
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.35);
+                    box-shadow: inset 0 0 0 0px #00000000;
+                    color: rgb(17, 17, 27);
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 650px) {
+    .language-modal {
+        border-radius: 0;
+
+        > div {
+            width: 100%;
+            height: 80%;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+    }
+
+    .modal-middle-cont {
+        padding: 30px 35px;
+    }
+
+    .modal-downer-cont > div {
+        flex-direction: column-reverse;
+        padding: 0 50px 20px;
+
+        button {
+            width: 100%;
+
+            &:not(:first-child) {
+                margin-bottom: 12px;
+            }
+        }
+
+    }
+}
+
+
+
+
+// for flags + language names
+[data-language]::after {
+    color: rgb(118, 130, 145);
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    width: calc(100% + 80px);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: -40px;
+    text-align: center;
+    font-size: 14px;
+}
+
+[data-language="en"] {
+    background-image: url(Img/usa_flag.svg);
+
+    &::after {
+        content: 'English';
+    }
+}
+[data-language="ru"] {
+    background-image: url(Img/russia_flag.svg);
+    
+    &::after {
+        content: 'Русский';
+    }
+}
+[data-language="es"] {
+    background-image: url(Img/spain_flag.svg);
+    
+    &::after {
+        content: 'Español';
+    }
+}
+[data-language="de"] {
+    background-image: url(Img/germany_flag.svg);
+    
+    &::after {
+        content: 'Deutsch';
+    }
+}
+[data-language="pt"] {
+    background-image: url(Img/portugal_flag.svg);
+    
+    &::after {
+        content: 'Português';
+    }
+}

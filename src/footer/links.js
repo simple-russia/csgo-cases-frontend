@@ -1,27 +1,29 @@
-export default [
 
+import Translate from 'Translator/tr';
+
+export default [
     {
-        blockName: 'Other projects',
+        blockName: Translate('footer/other-projects'),
         links: [
-            { linkName: "CSGO - case simulator", href: ""},
+            { linkName: Translate("footer/case-simulator"), href: ""},
             { linkName: "Alinguo", href: "https://alinguo.com/"},
         ]
     },
     {
-        blockName: 'This project\'s repos',
+        blockName: Translate('footer/project-repos'),
         links: [
             { linkName: "UI/UX design", href: ""},
             { linkName: "Frontend", href: "https://github.com/simple-russia/csgo-cases-frontend"},
             { linkName: "Backend", href: ""},
-            { linkName: "Author's GitHub account", href: ""},
+            { linkName: Translate('footer/author-github'), href: ""},
         ]
     },
     {
-        blockName: 'About',
+        blockName: Translate('footer/about'),
         links: [
-            { linkName: "Special thanks", href: ""},
-            { linkName: "Author's personal page", href: ""},
-            { linkName: "About the project", href: ""},
+            { linkName: Translate("footer/special-thanks"), href: ""},
+            { linkName: Translate("footer/author-page"), href: ""},
+            { linkName: Translate("footer/about-the-project"), href: ""},
         ]
     },
 ];

@@ -11,5 +11,14 @@ export default {
     'language': 'Language',
 
     //footer
-    
+    'footer/other-projects' : "Other projects",
+    'footer/case-simulator': "CS:GO - case similator",
+    'footer/project-repos' : "This project's repos",
+    'footer/author-github' : "Author's GitHub account",
+    'footer/about': "About",
+    'footer/special-thanks': "Special thanks",
+    'footer/author-page': "Author's personal page",
+    'footer/about-the-project': 'About the project',
+
+    'navbar/change-language': "Are you sure you want to change the language of the app to"
 }
