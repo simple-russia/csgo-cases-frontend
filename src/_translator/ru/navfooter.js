@@ -19,5 +19,6 @@ export default {
     'footer/author-page': "Личная страничка автора",
     'footer/about-the-project': 'О проекте',
 
-    'navbar/change-language': "Вы точно уверены, что Вы хотите переключить язык приложения на"
+    'navbar/change-language': "Вы точно уверены, что Вы хотите переключить язык приложения на",
+    'navbar/loading': 'Загрузка',
 }

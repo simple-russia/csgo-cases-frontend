@@ -24,7 +24,14 @@ const ModalLanguage = ({closeFn, ...props}) => {
     }
 
     const changeLanguage = () => {
+        props.setLoading(true);
         closeFn();
+        try {
+            import(`Translator/${props.newLang}`);
+            console.log('[CSGO] Winished preloading the language pack')
+        } catch (error) {
+            console.log('[CSGO] Couldn\'t find the language.\nError:', error);
+        }
         props.changeLanguage(props.newLang);
     }
 

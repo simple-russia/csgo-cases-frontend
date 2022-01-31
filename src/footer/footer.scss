@@ -36,11 +36,11 @@
         color: #414c52;
         text-decoration: none;
         font-size: 16px;
-        transition: all 130ms linear;
+        transition: all 70ms linear;
         margin-top: 5px;
 
         &:hover {
-            filter: brightness(1.5);
+            filter: brightness(1.8);
         }   
     }    
 }
@@ -65,4 +65,13 @@ footer .logo {
             width: 100%;
         }
     }
+}
+
+// me down below the page
+.author-copyright {
+    position: absolute;
+    bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: rgba(116, 126, 143, 0.5);
 }

@@ -10,7 +10,7 @@ const Settings = (props) => {
     return (
         <div className="settings-cont">
             
-            <h1 className="settings-label">{ Translate('language') }</h1>
+            <h1 className="settings-label">{ Translate('language') + ":" }</h1>
             <Language />
 
             <Volume />

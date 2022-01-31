@@ -3,7 +3,9 @@ import { useEffect } from "react/cjs/react.development";
 import './language.css';
 import languages_list from './languages';
 import { useDispatch, useSelector } from "react-redux";
+
 import ModalLanguage from "./modal";
+import Loading from "./loading";
 
 const Language = (props) => {
 
@@ -13,6 +15,9 @@ const Language = (props) => {
     const closeModal = () => {
         setModalOpened([false, '']);
     }
+
+    // loading after changing the language
+    const [isLoading, setIsLoading] = useState(false);
 
     const lang_list = useRef();
     const lang_cont = useRef();
@@ -105,8 +110,9 @@ const Language = (props) => {
             </div>
             }
 
-            {modalOpened[0] && modalOpened[1] && <ModalLanguage closeFn={closeModal} changeLanguage={changeLanguage} newLang={modalOpened[1]} />}
+            {modalOpened[0] && modalOpened[1] && <ModalLanguage setLoading={setIsLoading} closeFn={closeModal} changeLanguage={changeLanguage} newLang={modalOpened[1]} />}
 
+            {isLoading && <Loading />}
         </div>
     )
 }

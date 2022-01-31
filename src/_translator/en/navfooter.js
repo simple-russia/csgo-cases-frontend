@@ -20,5 +20,6 @@ export default {
     'footer/author-page': "Author's personal page",
     'footer/about-the-project': 'About the project',
 
-    'navbar/change-language': "Are you sure you want to change the language of the app to"
+    'navbar/change-language': "Are you sure you want to change the language of the app to",
+    'navbar/loading': 'Loading',
 }

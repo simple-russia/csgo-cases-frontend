@@ -30,6 +30,8 @@ const Footer = (props) => {
 
             <Logo />
 
+            <span className='author-copyright'>© 2022 Isaev Alexei</span>
+
         </footer>
     )
 }
