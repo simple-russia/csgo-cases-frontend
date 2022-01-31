@@ -1,5 +1,5 @@
 import React from 'react';
-import links from './links';
+import links_template from './links';
 import Logo from 'Components/logo';
 
 import './footer.scss';
@@ -17,6 +17,8 @@ const LinkBlock = (props) => {
 
 const Footer = (props) => {
 
+    const links = links_template(); // dynamic language render of static content
+    
     return (
         <footer className='footer'>
             

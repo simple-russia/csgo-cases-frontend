@@ -1,11 +1,11 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
-import links from '../links';
+import links_template from '../links';
 import { useSelector } from "react-redux";
 
 const NavLinks = (props) => {
     
-    useSelector(state => state.language)
+    const links = links_template(); // dynamic language render of static content
     
     return <div className="link-cont">
     <ul>

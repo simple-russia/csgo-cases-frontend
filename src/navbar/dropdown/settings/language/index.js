@@ -43,14 +43,18 @@ const Language = (props) => {
             if (langShort == lang_obj.short) {
                 return ; // we choose the language that we already have active so leave the fn
             }
-            // setLang( {type: "SET_LANGUAGE", payload: lang_obj.short} ); // sets the language global state (ru/en/es/...)
-            window.localStorage.setItem('language', lang_obj.short);
-            // window.location.reload();
-
-            setOpened(false);
-            setModalOpened([true, lang_obj.short])
-
+            
+            setModalOpened([true, lang_obj.short])        
         }
+    }
+    
+    const changeLanguage = (newLang) => {
+        // changing the language
+        window.localStorage.setItem('language', newLang);
+        setLang( {type: "SET_LANGUAGE", payload: newLang} ); // sets the language global state (ru/en/es/...)
+        window.location.reload();
+        setOpened(false);
+    
     }
 
     useEffect(() => {
@@ -89,7 +93,7 @@ const Language = (props) => {
             {opened &&
             <div ref={lang_list} className="language-list" onClick={choose} >
                 {languages_list.map( (language, index) =>
-                    <div className="language-item" key={index} data-short={index}>
+                    <div className={"language-item" + (langShort == language.short ? " active" : "")} key={index} data-short={index}>
                         <div className="language-item-icon-cont">
                             <div className="language-item-icon" data-flag={language.flag}></div>
                         </div>
@@ -101,7 +105,7 @@ const Language = (props) => {
             </div>
             }
 
-            {modalOpened[0] && modalOpened[1] && <ModalLanguage closeFn={closeModal} newLang={modalOpened[1]} />}
+            {modalOpened[0] && modalOpened[1] && <ModalLanguage closeFn={closeModal} changeLanguage={changeLanguage} newLang={modalOpened[1]} />}
 
         </div>
     )

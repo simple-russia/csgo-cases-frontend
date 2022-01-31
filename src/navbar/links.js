@@ -1,7 +1,7 @@
 
 import Translate from 'Translator/tr';
 
-const links = [
+const links = () => [
     {
       to: "/cases",
       name: Translate('navlink-cases')

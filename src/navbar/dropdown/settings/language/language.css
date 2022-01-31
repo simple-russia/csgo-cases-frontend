@@ -115,9 +115,21 @@
     display: flex;
 }
 
+
 .language-item:hover {
     background: linear-gradient(90deg, rgba(130, 130, 151, 0.05) 30%, transparent);
     cursor: pointer;
+}
+
+.language-item.active {
+    background-color: rgba(27, 27, 41, 0.8);
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.5;
+    filter: brightness(0.6) saturate(0.4);
+}
+.language-item.active:hover {
+    background: unset;
 }
 
 .language-item-icon-cont {

@@ -1,7 +1,7 @@
 
 import Translate from 'Translator/tr';
 
-export default [
+export default () => [
     {
         blockName: Translate('footer/other-projects'),
         links: [

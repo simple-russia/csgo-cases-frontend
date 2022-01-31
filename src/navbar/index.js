@@ -56,9 +56,9 @@ const Navbar = (props) => {
     closeDropdown();
   }
   
-  useEffect( () => {
-    console.log(dropdown)
-  }, [dropdown])
+  // useEffect( () => {
+  //   console.log(dropdown)
+  // }, [dropdown])
 
   return ( 
     <nav className="navbar" ref={navRef}>

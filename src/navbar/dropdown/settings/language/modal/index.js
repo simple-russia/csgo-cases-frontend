@@ -23,6 +23,11 @@ const ModalLanguage = ({closeFn, ...props}) => {
         }
     }
 
+    const changeLanguage = () => {
+        closeFn();
+        props.changeLanguage(props.newLang);
+    }
+
     // useEffect( () => {
 
     //     console.log(props.newLang, store.getState().language)
@@ -49,8 +54,8 @@ const ModalLanguage = ({closeFn, ...props}) => {
 
                 <div className="modal-downer-cont">
                     <div>
-                        <button className="cancel">Cancel</button>
-                        <button className="confirm">Confirm</button>
+                        <button className="cancel"  onClick={closeFn}>Cancel</button>
+                        <button className="confirm" onClick={changeLanguage}>Confirm</button>
                     </div>
                 </div>
 
