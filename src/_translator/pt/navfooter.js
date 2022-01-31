@@ -1,4 +1,4 @@
-// footer + navbar for RUSSIAN
+// footer + navbar for PORTUGUESE
 
 export default {
     'navlink-cases': 'casos',
