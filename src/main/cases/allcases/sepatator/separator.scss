@@ -1,0 +1,24 @@
+
+.separator {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr auto 1fr;
+
+    --color: rgba(87, 79, 107, 0.7);
+
+    .separator-text {
+        padding: 0 25px;
+        color: var(--color);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        user-select: none;
+    }
+
+    .separator-line {
+        height: 1px;
+        width: 100%;
+        background-color: var(--color);
+        transform: translateY(9px);
+    }
+}

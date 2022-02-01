@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'staat';
+    src: url('Img/fonts/staat.ttf');
+}
+@font-face {
+    font-family: 'bebas';
+    src: url('Img/fonts/bebas_ru.ttf');
+}
+
+@keyframes shineAnim {
+    from {}
+    to   {}
+}
+
+.shine-element {
+    overflow: hidden;
+    position: relative;
+}
+.shine-element::after {
+    content: '';
+    position: absolute;
+}
+
+.iron-banner {
+    width: 100%;
+    height: 55px;
+    background-color: rgb(73, 98, 99);
+    background-image: url('Img/iron/iron-texture.png');
+    background-size: initial;
+    background-position: center;
+
+    box-shadow: inset 0 -2px 1px 3px rgba(2, 3, 14, 0.4),
+                inset 0 6px  1px -3px rgba(129, 162, 252, 0.35);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        position: relative;
+        font-family: staat, bebas, Arial;
+        font-size: 25px;
+        color: rgb(192, 208, 212);
+
+        display: flex;
+        align-items: center;
+
+        // background-color: blue;
+
+        background-image: linear-gradient(#c5d1d2, #35535a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+        user-select: none;
+
+        &::after, &::before {
+            content: '';
+            background-image: url('Img/iron/screw.png');
+            display: block;
+            width: 15px;
+            height: 15px;
+            background-size: cover;
+            position: absolute;
+            border-radius: 100%;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        &::after {
+            left: calc(100% + 10px);
+        }
+        &::before {
+            right: calc(100% + 10px);
+        }
+
+        > span {
+            position: absolute;
+        }
+
+    }
+}

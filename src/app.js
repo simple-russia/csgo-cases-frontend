@@ -9,6 +9,12 @@ const App = (props) => {
 
   useEffect( () => {
     console.log('[CSGO] Initial render')
+
+    // remove fallbaks
+    for (let i of Array.from(document.querySelectorAll( '.fallback' ))) {
+      console.log(i)
+      i.remove();
+    }
   }, [])
 
   return ( <>

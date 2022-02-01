@@ -17,7 +17,7 @@ const Dropdown = (props) => {
         </> : ''}
 
         {props.dropdownCurrent == 'navigation-links'?
-            <NavigationLinks />
+            <NavigationLinks closeFn={props.closeFn} />
         : ''}
 
     </div>

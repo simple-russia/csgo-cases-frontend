@@ -2,7 +2,7 @@
     width: 700px;
     min-height: calc(100vh - 60px);
     margin: 60px auto 0;
-    --color: rgb(15, 15, 26);
+    --color: rgb(20 20 35);
     background-image: linear-gradient( var(--color) , var(--color) );
     background-repeat: repeat;
     background-size: cover;
