@@ -9,7 +9,7 @@ const LinkBlock = (props) => {
     return (
         <div className='link-block'>
             <span>{props.block.blockName}</span>
-            { props.block.links.map( (link, index) => <a key={index} href={link.href} >{link.linkName}</a> ) }
+            { props.block.links.map( (link, index) => <a key={index} href={link.href} target={"_blank"}>{link.linkName}</a> ) }
         </div>
     )
 }

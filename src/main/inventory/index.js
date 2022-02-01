@@ -1,8 +1,16 @@
 import React from "react";
+import ActiveItem from "./ActiveItem";
+import './inventory.scss';
+import InventoryItems from "./InventoryItems";
 
 const Inventory = (props) => {
 
-    return <h1>Inventory</h1>
+    return (
+        <div className="inventory-cont">
+            <InventoryItems />
+            <ActiveItem />
+        </div>
+    )
 }
 
 export default Inventory;

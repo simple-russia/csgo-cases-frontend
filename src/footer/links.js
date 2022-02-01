@@ -12,10 +12,10 @@ export default () => [
     {
         blockName: Translate('footer/project-repos'),
         links: [
-            { linkName: "UI/UX design", href: ""},
+            { linkName: "UI/UX design", href: "https://github.com/simple-russia/csgo-cases-uxui"},
             { linkName: "Frontend", href: "https://github.com/simple-russia/csgo-cases-frontend"},
-            { linkName: "Backend", href: ""},
-            { linkName: Translate('footer/author-github'), href: ""},
+            { linkName: "Backend", href: "https://github.com/simple-russia/csgo-cases-backend"},
+            { linkName: Translate('footer/author-github'), href: "https://github.com/simple-russia"},
         ]
     },
     {
