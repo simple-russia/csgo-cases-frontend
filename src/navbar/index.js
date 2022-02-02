@@ -6,13 +6,16 @@ import Logo from 'Components/logo';
 
 import './navbar.scss';
 import RightBlock from './right_block';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 const Navbar = (props) => { 
 
   const navRef = useRef();
-  const [nav_width, setNav_width] = useState(document.documentElement.clientWidth || document.body.clientWidth); // width of Navbar
+  // const [nav_width, setNav_width] = useState(document.documentElement.clientWidth || document.body.clientWidth); // width of Navbar
+  const nav_width = useSelector(state => state.navWidth);
+  const dispatch = useDispatch();
+
   const [children_width, setChildren_width] = useState(0); // width of all of Navbar's children, even not rendered ones
   const [dropdown, setDropdown] = useState(''); // '' to render no dropdown, 'settings' to render settings dropdown, etc
   
@@ -20,7 +23,12 @@ const Navbar = (props) => {
 
   // nav_width state is always equal to navbar's/window's width 
   const resize_check  = () => {
-    setNav_width(navRef.current.clientWidth);
+    const width = navRef.current.clientWidth;
+
+    dispatch({
+      type: 'SET_WIDTH',
+      payload: width,
+    });
   }
 
   const childrenWidthCheck = () => {
@@ -56,9 +64,6 @@ const Navbar = (props) => {
     closeDropdown();
   }
   
-  // useEffect( () => {
-  //   console.log(dropdown)
-  // }, [dropdown])
 
   return ( 
     <nav className="navbar" ref={navRef}>

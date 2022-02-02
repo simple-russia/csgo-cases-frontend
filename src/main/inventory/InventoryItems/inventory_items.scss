@@ -1,7 +1,10 @@
 
 
 .inventory-items-cont {
-    width: 60%;
+    width: 65%;
+}
+.inventory-items-cont.full {
+    width: 100%;
 }
 
 .inventory-items {
@@ -32,13 +35,5 @@
         height: 100%;
         width: 100%;
         background-color: rgb(106, 78, 138);
-    }
-}
-
-// roughly displaying how it should look like
-@media (max-width: 600px) {
-
-    .inventory-items-cont {
-        width: 100%;
     }
 }

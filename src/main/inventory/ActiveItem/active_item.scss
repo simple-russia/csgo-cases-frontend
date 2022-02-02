@@ -3,14 +3,6 @@
 .active-item {
     background-color: yellow;
 
-    width: 35%;
+    width: 31%;
     height: inherit;
-
-}
-
-// roughly how it should look like
-@media (max-width: 600px) {
-    .active-item {
-        display: none;
-    }
 }

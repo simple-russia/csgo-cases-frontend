@@ -5,7 +5,7 @@ const ActiveItem = (props) => {
 
     return (
         <div className="active-item">
-            Da Active Item here
+            DaActive Item here
         </div>
     )
 }

@@ -15,7 +15,8 @@ export default () => [
             { linkName: "UI/UX design", href: "https://github.com/simple-russia/csgo-cases-uxui"},
             { linkName: "Frontend", href: "https://github.com/simple-russia/csgo-cases-frontend"},
             { linkName: "Backend", href: "https://github.com/simple-russia/csgo-cases-backend"},
-            { linkName: Translate('footer/author-github'), href: "https://github.com/simple-russia"},
+            { linkName: "Database", href: "https://github.com/simple-russia/csgo-cases-backend"},
+            { linkName: Translate('footer/author-github'), href: "https://github.com/simple-russia/csgo-db"},
         ]
     },
     {
