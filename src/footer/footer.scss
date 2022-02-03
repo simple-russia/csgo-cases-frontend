@@ -39,7 +39,7 @@
         transition: all 70ms linear;
         margin-top: 5px;
 
-        &:hover {
+        &:hover, &:active {
             filter: brightness(1.8);
         }   
     }    
@@ -52,7 +52,7 @@ footer .logo {
     bottom: 20px;
     right: 20px;
 
-    &:hover {
+    &:hover, &:active {
         cursor: pointer;
         filter: brightness(0.7);
     }
@@ -67,6 +67,7 @@ footer .logo {
     }
 }
 
+
 // me down below the page
 .author-copyright {
     position: absolute;
@@ -74,4 +75,12 @@ footer .logo {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: rgba(116, 126, 143, 0.5);
+}
+
+// so for smaller screens the logo doesn't go onto the copyright label
+@media (max-width: 500px) {
+    .author-copyright {
+        left: 20px;
+        bottom: 20px;
+    }
 }

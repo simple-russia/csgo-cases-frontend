@@ -18,7 +18,7 @@
 .main-cont {
     width: 100%;
     height: inherit;
-    position: absolute;
+    position: relative;
 }
 
 .bg {
