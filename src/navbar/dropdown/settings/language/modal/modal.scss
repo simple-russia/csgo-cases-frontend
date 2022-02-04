@@ -112,7 +112,7 @@
                 background-color: #3b6e88;
                 color: rgb(225, 236, 238);
 
-                &:hover, &:touch {
+                &:hover, &:active {
                     // background-color: #213742;
                     // color: rgb(185, 198, 201);
                     filter: brightness(0.55);

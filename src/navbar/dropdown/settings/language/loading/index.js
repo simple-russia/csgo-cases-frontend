@@ -20,7 +20,7 @@ const Loading = (props) => {
     return (
         <div style={{"--points": `'${points}'`}} className='language-modal loading' onClick={handleClick}>
             <div>
-                <span>Loadng</span>
+                <span>Loading</span>
                 <div className='loading-bar'>
                     <div className='bar'  ></div>
                     <div className='decor'></div>
