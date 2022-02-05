@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './allcases.scss';
 import Sepatator from "Components/sepatator";
+import Case from "./case";
 import axios from "axios";
 
 
@@ -10,7 +11,7 @@ const AllCases = (props) => {
 
     useEffect( () => {
         // fetch data
-        const host = "http://127.0.0.1:8000";
+        const host = "http://192.168.43.247:80/";
         const query = "/api/get-all-cases";
 
         axios.get(host + query).then( response =>
@@ -20,17 +21,29 @@ const AllCases = (props) => {
     }, [])
 
     return (
-        <div className="all-cases">
+        <div className="all-cases ">
 
             <Sepatator name={"cases/regular-cases"}/>
-            {caseList.filter(el => !el.is_special).map(el =>
-                <div>{el.name}</div>
-            )}
+            <div className="all-cases-cont regular">
+                {caseList.filter(el => !el.is_special && el.is_available).map(el =>
+                    <Case data={el} />
+                )}
+                <div className="empty"></div>
+                <div className="empty"></div>
+                <div className="empty"></div>
+                <div className="empty"></div>
+            </div>
 
             <Sepatator name={"cases/special-cases"}/>
-            {caseList.filter(el => el.is_special).map(el =>
-                <div>{el.name}</div>
-            )}
+            <div className="all-cases-cont special">
+                {caseList.filter(el => el.is_special && el.is_available).map(el =>
+                    <Case data={el} />
+                )}
+                <div className="empty"></div>
+                <div className="empty"></div>
+                <div className="empty"></div>
+                <div className="empty"></div>
+            </div>
 
         </div>
     )

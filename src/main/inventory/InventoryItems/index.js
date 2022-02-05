@@ -1,7 +1,10 @@
 import React from "react";
 import './inventory_items.scss';
+import InventoryItem from './inventory_element';
 
 const InventoryItems = ({isMobile, ...props}) => {
+
+    const rows = 5; // amount of rows and columns of weapons in inventory
 
     return (
         <div className={"inventory-items-cont" + (isMobile ? " full" : "")} >
@@ -9,13 +12,15 @@ const InventoryItems = ({isMobile, ...props}) => {
             <div className="inventory-items" >
                 <div className="inventory-list-cont-wrapper" >
                     <div>
-                        my inventory
+                        {[...Array(rows**2)].map( (_, index) =>
+                            <InventoryItem weapon={props.weapons[index]} />
+                        )}
                     </div>
                 </div>
             </div>
 
             <div className="inventory-page">
-                page number
+                {props.page}
             </div>
         </div>
     )

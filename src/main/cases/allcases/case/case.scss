@@ -1,0 +1,87 @@
+a.case {
+    display: block;
+    border: 1px solid rgba(147, 171, 190, 0);
+    width: 105px;
+    height: 140px;
+    text-decoration: none;
+    // margin-right: 45px;
+}
+
+.case-cont {
+    user-select: none;
+    
+    transition: all 170ms ease-in-out;
+    
+    > img {
+        display: block;
+        width: 100%;
+        // padding-bottom: 100%;
+        transform: translateY(7px) scale(0.9);
+        // shadow
+        background-image: radial-gradient(rgba(0, 0, 0, 0.89), transparent 70%);
+        background-position: 0 20px;
+        background-repeat: no-repeat;
+        background-size: 100% 80%;
+    }
+    
+    > .case-name {
+        display: block;
+
+        width: calc(100% + 12px); // to have more space for the name
+        transform: translateX(-6px);
+        
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        color: rgb(204, 209, 223);
+        margin-bottom: 5px;
+    }
+    
+    > .case-price {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        color: rgb(106, 120, 124);
+        
+        &::before {
+            content: '$';
+            margin-right: 3px;
+        }
+    }
+    
+    
+    &:hover {
+        transform: scale(1.05);
+        background-image: radial-gradient(rgba(41, 41, 83, 0.2) 20% , transparent 70%);
+        filter: brightness(1.1);
+    }
+} 
+
+
+@media (max-width: 690px) {
+    a.case, .empty {
+        width: 85px;
+        height: 120px;
+    }
+
+    .case-cont > .case-name {
+        font-size: 12px;
+    }
+}
+@media (max-width: 380px) {
+    
+    a.case, .empty {
+        width: 65px;
+        height: 90px;
+    }
+    .case-cont > .case-name {
+        font-size: 9px;
+    }
+}
+.empty {
+    height: 0;
+}

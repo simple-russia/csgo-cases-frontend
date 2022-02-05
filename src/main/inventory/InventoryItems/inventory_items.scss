@@ -29,11 +29,32 @@
 
     // for its immediate child to work with
     box-sizing: border-box;
-    padding: 15px;
+    padding: 8px;
 
     > div {
         height: 100%;
         width: 100%;
         background-color: rgb(106, 78, 138);
+
+        display: flex;
+        justify-content: space-between;
+        align-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+
+// inventory-items
+
+.inventory-item {
+    width: 18%;
+    height: 18%;
+    box-sizing: border-box;
+    background-color: rgb(48, 48, 104);
+    padding: 5px;
+
+    > img {
+        width: 100%;
+        height: 100%;
     }
 }

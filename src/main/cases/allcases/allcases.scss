@@ -1,5 +1,26 @@
 
-
 .all-cases {
     padding: 35px 40px;
+}
+@media (max-width: 600px) {
+    .all-cases {
+        padding: 20px 25px;
+    }
+}
+.all-cases-cont {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.empty {
+    width: 105px;
+}
+
+@media (max-width: 580px) {
+    a.case {
+        width: 80px;
+    }
 }
