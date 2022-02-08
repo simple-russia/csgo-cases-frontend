@@ -7,7 +7,6 @@ import store from 'Redux';
 import { changeLang } from 'Translator/tr';
 
 
-
 const AppComponent = (
     <Router>
         <Provider store={store}>

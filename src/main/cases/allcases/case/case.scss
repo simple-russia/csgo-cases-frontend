@@ -1,10 +1,15 @@
 a.case {
     display: block;
     border: 1px solid rgba(147, 171, 190, 0);
-    width: 105px;
+    --width: 105px;
+    width: var(--width);
     height: 140px;
     text-decoration: none;
     // margin-right: 45px;
+}
+.empty {
+    --width: 105px;
+    width: var(--width)
 }
 
 .case-cont {
@@ -15,6 +20,7 @@ a.case {
     > img {
         display: block;
         width: 100%;
+        min-height: var(--width);
         // padding-bottom: 100%;
         transform: translateY(7px) scale(0.9);
         // shadow
@@ -64,7 +70,7 @@ a.case {
 
 @media (max-width: 690px) {
     a.case, .empty {
-        width: 85px;
+        --width: 85px;
         height: 120px;
     }
 
@@ -75,7 +81,7 @@ a.case {
 @media (max-width: 380px) {
     
     a.case, .empty {
-        width: 65px;
+        --width: 65px;
         height: 90px;
     }
     .case-cont > .case-name {
@@ -84,4 +90,5 @@ a.case {
 }
 .empty {
     height: 0;
+    width: var(--width);
 }

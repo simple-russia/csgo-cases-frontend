@@ -11,6 +11,7 @@ import Contracts from './contracts';
 import About from './about';
 import Balance from './balance';
 import NotFound from './404';
+import Case from './case_page';
 
 const Main = (props) => { 
 
@@ -23,6 +24,7 @@ const Main = (props) => {
 
         <Routes>
           <Route path="/cases" element={<Cases />} />
+          <Route path="/cases/:name" element={<Case />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/contracts" element={<Contracts />} />
           <Route path="/about" element={<About />} />

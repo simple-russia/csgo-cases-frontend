@@ -8,7 +8,7 @@
 }
 
 .inventory-items {
-    background-color: violet;
+    background-color: rgb(6, 6, 12);
 
     width: 100%;
     padding-bottom: 100%;
@@ -29,12 +29,11 @@
 
     // for its immediate child to work with
     box-sizing: border-box;
-    padding: 8px;
+    padding: 5px;
 
     > div {
         height: 100%;
         width: 100%;
-        background-color: rgb(106, 78, 138);
 
         display: flex;
         justify-content: space-between;
@@ -47,14 +46,34 @@
 // inventory-items
 
 .inventory-item {
-    width: 18%;
-    height: 18%;
+    width: 19%;
+    height: 19%;
     box-sizing: border-box;
-    background-color: rgb(48, 48, 104);
+    background-color: rgb(40, 40, 50);
     padding: 5px;
+    user-select: none;
+    
+    &.filled {
+        cursor: pointer;
+        &:hover {
+            filter: brightness(1.15);
+        }
+    } 
+
+    border-color: rgb(187, 187, 189);
+    border-style: solid;
+    border-width: 1px;
+
+    &.stattrak {
+        border-color: rgb(179, 121, 15);
+    }
 
     > img {
         width: 100%;
         height: 100%;
     }
+}
+
+@media (max-width: 600px) {
+
 }

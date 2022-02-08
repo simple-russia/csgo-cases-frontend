@@ -5,7 +5,10 @@ const port = process.env.PORT || 3000;
      
 module.exports = merge(common, {   
      
-    mode: "development",   
+    mode: "development",
+    output: {
+      publicPath: '/',
+    },
      
     optimization: {   
       minimize: false, // minify CSS and JS   
@@ -15,6 +18,7 @@ module.exports = merge(common, {
       host: 'localhost',   
       port: port,   
       historyApiFallback: true,   
-      open: true   
+      open: true,
+      historyApiFallback: true,
     }   
 });   

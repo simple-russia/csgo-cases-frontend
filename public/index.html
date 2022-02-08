@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>CS GO</title>
     <style class="loading-style">
+
+        @keyframes load {
+            from {
+                left: -40px;
+            }
+            to {
+                left: 0px
+            }
+        }
+
         .loading {
             position: fixed;
             width: 100vw;
@@ -70,7 +80,9 @@
                 linear-gradient(135deg, var(--line-color) 34%, transparent 0%),
                 linear-gradient(135deg, transparent 66%, var(--line-color) 0%);
             background-size: 40px 20px;
-            background-repeat: repeat
+            background-repeat: repeat;
+
+            animation: load 100ms liner;
         }
         .loading .decor {
             width: 100%;

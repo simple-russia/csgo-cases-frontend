@@ -7,7 +7,7 @@ const Banner = (props) => {
     return (
         <div className="iron-banner">
             <span className="shadow">
-                CS GO: CASE SIMULATOR
+                {props.text ? props.text : 'no text provided'}
             </span>
         </div>
     )

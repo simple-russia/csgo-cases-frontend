@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "./slider";
-import Banner from './banner';
+import Banner from 'Components/banner';
 import AllCases from "./allcases";
 
 const Cases = (props) => {
@@ -10,7 +10,7 @@ const Cases = (props) => {
             
             <Slider />
 
-            <Banner />
+            <Banner text="CSGO CASE SIMULATOR" />
 
             <AllCases />
             
