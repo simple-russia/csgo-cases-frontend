@@ -1,0 +1,45 @@
+.weapon-card {
+    background-color: #686868;
+    background-image: radial-gradient(darkgrey 0%, transparent 90%);
+    position: relative;
+    box-shadow: 0 0 1px 1px #292929;
+    user-select: none;
+
+    > .label {
+        height: 28%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background-color: var(--label-color);
+        background-image: linear-gradient(90deg, transparent,  rgb(36 36 36 / 69%));
+        padding: 2% 7%;
+        box-sizing: border-box;
+        box-shadow: 0 -1px 1px 0 #2f2f2f;
+        
+        > span {   
+            display: block;
+            color: rgb(243, 236, 236);
+            font-family: sans-serif, Arial, Helvetica;
+            font-size: 68%;
+            margin-bottom: 1%;
+            text-shadow: 0 1px 2px black;
+            
+
+            &.style {
+                color: rgb(201, 191, 191);
+                font-size: 60%;
+            }
+        }
+    }
+}
+
+
+.weapon-card-img-cont {
+    width: 90%;
+    height: 60%;
+    margin: 2% auto;
+
+    > img {
+        width: 100%;
+    }
+}

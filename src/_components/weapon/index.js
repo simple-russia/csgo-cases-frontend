@@ -1,0 +1,22 @@
+import React from "react";
+import './weapon.scss';
+
+const Weapon = ({data, ...props}) => {
+
+    const host = "http://192.168.43.247:80/assets"
+
+    // props.size - the width and height of the weapon card.
+    return (
+        <div style={{width: props.size, height:props.size, '--label-color': "#" + data.color }} className={"weapon-card " + data.color}>
+            <div className="weapon-card-img-cont">
+                <img src={host + data.imageurl}></img>
+            </div>
+            <div className={"label " + data.color.toLowerCase()}>
+                <span className="type" >{data.type}</span>
+                <span className="style" >{data.style}</span>
+            </div>
+        </div>
+    )
+}
+
+export default Weapon;

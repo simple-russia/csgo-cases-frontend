@@ -3,6 +3,7 @@ import Banner from 'Components/banner';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Roulette from './roulette';
+import Showcase from './showcase';
 
 const Case = (props) => {
 
@@ -28,27 +29,32 @@ const Case = (props) => {
                 "weapons": [],
             })
         })
+        console.log('case fetch')
     }, [])
 
     // fetch the belonging weapons
     useEffect( () => {
-        console.log(_case)
+        let case_empty = !(Object.keys(_case.case).length) // is case empty?
+        let weapons_empty = !_case.weapons.length // is weapons array empty?
 
-        if (!_case.case) {
+        if (case_empty || !weapons_empty) {
             // if the case is empty, that is not found, don't do anything.
             // might do some error actions
+
+            // console.log('didnt go cuz', _case)
             return null;
         }
 
         // fetch data for the specific case
         const host = "http://192.168.43.247:80/";
-        const query = `/api/get-weapons?case=${1}`;
+        const query = `/api/get-weapons?case=${_case.case.id}`;
 
         axios.get(host + query).then( response => {
             let responses = response.data;
 
-            setCase(prev => { return {...prev, weapons: responses} } )
-            console.log(_case)
+            setCase(prev => {
+                return {...prev, "weapons": responses.weapons}
+            } )
         })
         
     }, [_case.case])
@@ -59,7 +65,7 @@ const Case = (props) => {
 
             <Roulette />
 
-            
+            <Showcase weapons={_case.weapons} />
         </div>
     )
 }
