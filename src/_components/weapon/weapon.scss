@@ -1,6 +1,13 @@
 .weapon-card {
     background-color: #686868;
-    background-image: radial-gradient(darkgrey 0%, transparent 90%);
+    background-image:
+        radial-gradient(#40404061, transparent 30%),
+        radial-gradient(darkgrey 0%, transparent 90%);
+    
+    background-size: 180px 25px, 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center 71%, center center;
+
     position: relative;
     box-shadow: 0 0 1px 1px #292929;
     user-select: none;

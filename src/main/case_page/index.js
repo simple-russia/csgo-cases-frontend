@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Roulette from './roulette';
 import Showcase from './showcase';
+import Translate from 'Translator/tr';
 
 const Case = (props) => {
 
@@ -51,6 +52,7 @@ const Case = (props) => {
 
         axios.get(host + query).then( response => {
             let responses = response.data;
+            console.log(responses)
 
             setCase(prev => {
                 return {...prev, "weapons": responses.weapons}
@@ -60,7 +62,7 @@ const Case = (props) => {
     }, [_case.case])
 
     return (
-        <div>
+        <div style={{"--drop-text": `"${Translate('cases/possible-drop')}:"` }} >
             <Banner text={name.toUpperCase()} />
 
             <Roulette />

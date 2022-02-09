@@ -1,5 +1,60 @@
 .roulette-cont {
     width: 100%;
-    height: 250px;
-    background-color: yellow;
+    height: 180px;
+    background-color: rgb(20, 20, 36);
+    background-image: linear-gradient(rgba(28, 65, 90, 0.25), transparent 95%);
+}
+
+.button-cont {
+    width: 100%;
+    height: 70px;
+    background-color: rgb(20, 20, 36);
+    padding-top: 35px;
+    
+    display: flex;
+    justify-content: center;
+
+    > div {
+        width: 150px;
+        height: 30px;
+        background-color: #415c0c;
+        background-image: linear-gradient(rgba(120, 170, 122, 0.26), transparent);
+        box-shadow: 0 0 1px 2px rgba(9, 17, 7, 0.55);
+        cursor: pointer;
+        user-select: none;
+
+        color: rgb(216, 226, 213);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &::before {
+            content: var(--press-button);
+            position: absolute;
+            bottom: calc(100% + 12px);
+            pointer-events: none;
+
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            white-space: nowrap;
+            color: rgb(255, 153, 0);
+            text-shadow: 0 1px 2px black;
+        }
+
+        &:hover {
+            color: rgb(184, 194, 181);
+            background-image: linear-gradient(rgba(120, 170, 122, 0.1), transparent);
+            background-color: #314609;
+        }
+        &:active {
+            color: rgb(151, 163, 147);
+            background-image: linear-gradient(rgba(120, 170, 122, 0.1), transparent);
+            background-color: #213005;
+        }
+    }
 }

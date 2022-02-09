@@ -7,10 +7,15 @@
     src: url('Img/fonts/bebas_ru.ttf');
 }
 
-@keyframes shineAnim {
-    from {}
-    to   {}
+@keyframes banner-shine {
+    from {
+        left: -500%;
+    }
+    to {
+        left: 500%;
+    }
 }
+
 
 .shine-element {
     overflow: hidden;
@@ -28,6 +33,9 @@
     background-image: url('Img/iron/iron-texture.png');
     background-size: initial;
     background-position: center;
+    position: relative;
+
+    overflow: hidden;
 
     box-shadow: inset 0 -2px 1px 3px rgba(2, 3, 14, 0.4),
                 inset 0 6px  1px -3px rgba(129, 162, 252, 0.35);
@@ -76,5 +84,16 @@
             position: absolute;
         }
 
+    }
+
+    // shine element
+    &::after {
+        content: '';
+        position: absolute;
+        width: 420px;
+        height: inherit;
+        background-image: linear-gradient(120deg, transparent 20%, rgba(178, 176, 255, 0.1), transparent 80%);
+
+        animation: banner-shine 10000ms linear infinite;
     }
 }

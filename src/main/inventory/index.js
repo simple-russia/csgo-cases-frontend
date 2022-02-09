@@ -11,12 +11,12 @@ import Banner from 'Components/banner'
 const wpns = [
     {
         id: 1,
-        image: "weapons/m4a4_aziimov.png",
+        image: "weapons/m4a4_azimov.png",
         stattrak: true,
     },
     {
         id: 2,
-        image: "weapons/m4a4_aziimov.png",
+        image: "weapons/m4a4_azimov.png",
         knife: true, // for purple
     },
     {
@@ -25,7 +25,7 @@ const wpns = [
     },
     {
         id: 17,
-        image: "weapons/m4a4_aziimov.png",
+        image: "weapons/m4a4_azimov.png",
     },
 ]
 
