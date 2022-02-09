@@ -2,6 +2,10 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+img {
+    user-select: none;
+}
+
 body::-webkit-scrollbar {
     background: rgb(38, 44, 54);
     width: 15px;

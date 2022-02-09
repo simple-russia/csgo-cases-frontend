@@ -9,7 +9,7 @@ const Weapon = ({data, ...props}) => {
     return (
         <div style={{width: props.size, height:props.size, '--label-color': "#" + data.color }} className={"weapon-card " + data.color}>
             <div className="weapon-card-img-cont">
-                <img src={host + data.imageurl}></img>
+                <img src={host + data.imageurl} draggable="false" ></img>
             </div>
             <div className={"label " + data.color.toLowerCase()}>
                 <span className="type" >{data.type}</span>

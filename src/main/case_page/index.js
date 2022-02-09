@@ -65,7 +65,7 @@ const Case = (props) => {
         <div style={{"--drop-text": `"${Translate('cases/possible-drop')}:"` }} >
             <Banner text={name.toUpperCase()} />
 
-            <Roulette />
+            <Roulette the_case={_case.case} weapons={_case.weapons} />
 
             <Showcase weapons={_case.weapons} />
         </div>
