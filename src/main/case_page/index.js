@@ -30,7 +30,6 @@ const Case = (props) => {
                 "weapons": [],
             })
         })
-        console.log('case fetch')
     }, [])
 
     // fetch the belonging weapons
@@ -52,7 +51,6 @@ const Case = (props) => {
 
         axios.get(host + query).then( response => {
             let responses = response.data;
-            console.log(responses)
 
             setCase(prev => {
                 return {...prev, "weapons": responses.weapons}

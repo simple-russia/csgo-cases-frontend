@@ -7,7 +7,7 @@ const Weapon = ({data, ...props}) => {
 
     // props.size - the width and height of the weapon card.
     return (
-        <div style={{width: props.size, height:props.size, '--label-color': "#" + data.color }} className={"weapon-card " + data.color}>
+        <div style={{width: props.size, height:props.size, '--label-color': "#" + data.color, ...props.style}} className={"weapon-card " + data.color}>
             <div className="weapon-card-img-cont">
                 <img src={host + data.imageurl} draggable="false" ></img>
             </div>

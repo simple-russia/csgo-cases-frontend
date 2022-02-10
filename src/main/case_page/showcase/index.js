@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import './showcase.scss';
 import Weapon from "Components/weapon";
 
 const Showcase = ({weapons}) => {
 
-    const size = '100px';
+    const [showStats, setShowStats] = useState(false);
+
+    const size = 100;
+    const total_rarity = weapons.reduce( (sum, weapon) => sum + weapon.rarity, 0 )
+
+    let winExpect = 0; // the math expectancy of the gotten weapon's price
 
     const sortFn = (a, b) => {
         return a.index - b.index
@@ -12,9 +17,18 @@ const Showcase = ({weapons}) => {
 
     return (
         <div className="showcase-cont">
-            <div className="showcase-main">
+            <div className="showcase-main" onClick={() => setShowStats(pr => !pr)}>
                 {weapons.sort(sortFn).map( (el, index) =>
-                <Weapon key={index} size={'100px'} data={el} />
+                    <Weapon
+                      key={index}
+                      size={size}
+                      data={el}
+                      style={showStats && {
+                          '--chance': `"${ (el.rarity * 100 / total_rarity).toFixed(2) }%"`,
+                          '--price': `"~${el.price}$"`,
+                        }
+                      }
+                    />
                 )}
                 {[...Array(10)].sort(sortFn).map( (_, index) => 
                     <div key={index} style={{width: size}}></div>

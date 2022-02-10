@@ -25,8 +25,8 @@ const AllCases = (props) => {
 
             <Sepatator name={"cases/regular-cases"}/>
             <div className="all-cases-cont regular">
-                {caseList.filter(el => !el.is_special && el.is_available).map(el =>
-                    <Case data={el} />
+                {caseList.filter(el => !el.is_special && el.is_available).map((el, index) =>
+                    <Case data={el} key={index} />
                 )}
                 <div className="empty"></div>
                 <div className="empty"></div>
@@ -36,8 +36,8 @@ const AllCases = (props) => {
 
             <Sepatator name={"cases/special-cases"}/>
             <div className="all-cases-cont special">
-                {caseList.filter(el => el.is_special && el.is_available).map(el =>
-                    <Case data={el} />
+                {caseList.filter(el => el.is_special && el.is_available).map((el, index) =>
+                    <Case data={el} key={index} />
                 )}
                 <div className="empty"></div>
                 <div className="empty"></div>

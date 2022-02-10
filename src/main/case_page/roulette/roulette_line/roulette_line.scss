@@ -1,0 +1,70 @@
+
+.roulette-line-cont {
+    width: 325px;
+    height: 125px;
+    min-width: 200px;
+    margin: 40px auto;
+
+    background-color: rgb(15, 15, 15);
+    overflow: hidden;
+    position: relative;
+    
+    box-sizing: border-box;
+    border: 2px solid rgb(7, 7, 7);
+    box-shadow: 0 0 2px 0 rgba(168, 216, 204, 0.15);
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: calc(50% - 1px);
+        height: 100%;
+        width: 2px;
+        top: 0;
+        background-color: rgb(192, 132, 42);
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.7);
+    }
+}
+
+.weapons-line {
+    height: 100%;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    width: auto;
+    position: absolute;
+
+    > * {
+        margin-right: 7px;
+    }
+}
+
+.roulette-line-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 321px;
+    height: 121px;
+
+    box-shadow:
+        inset 0 .75px 0px .25px rgba(118, 135, 136, 0.404);
+
+    background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.9), transparent 25%),
+        linear-gradient(270deg, rgba(0, 0, 0, 0.9), transparent 25%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.6) 5%, transparent 5%),
+        linear-gradient(0deg, rgba(0, 0, 0, 0.6) 4%, transparent 4%),
+}
+
+.roulette-line-shine {
+    position: absolute;
+    top: 0;
+    left: 100px;
+    width: 321px;
+    height: 121px;
+
+    transform: skew(20deg);
+
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.075), transparent);
+}

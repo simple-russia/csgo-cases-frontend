@@ -13,7 +13,7 @@ const InventoryItems = ({isMobile, ...props}) => {
                 <div className="inventory-list-cont-wrapper" >
                     <div>
                         {[...Array(rows**2)].map( (_, index) =>
-                            <InventoryItem weapon={props.weapons[index]} />
+                            <InventoryItem weapon={props.weapons[index]} key={index} />
                         )}
                     </div>
                 </div>

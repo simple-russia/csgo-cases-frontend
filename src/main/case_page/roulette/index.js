@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './roulette.scss';
-import RouletteLine from "./roulette_line";
+import RouletteLine, { startSpin } from "./roulette_line";
 
 
-const Button = () => {
+const Button = ({clickHandle, the_case, ...props}) => {
+    
+    const balance = 2111;
+    const canAfford = balance > the_case.price;
+
     return (
-        <div className="button" style={{ "--press-button": `"Press the button to open the case"` }}>
-            250$
+        <div
+          className={"button" + (canAfford ? '' : ' blocked')}
+          onClick={clickHandle}
+          style={{ "--press-button": canAfford ? `"Press the button to open the case"` : `"You don't have enough money!"` }}>
+            {the_case.price}$
         </div>
     )
 }
@@ -20,7 +27,7 @@ const Case = ( {the_case} ) => {
             <img src={hostname + the_case.imageurl} draggable="false" ></img>
             <div className="case-label">
                 <span className="case-label-name">{the_case.name}</span>
-                <span className="case-label-type">Weapon Case</span>
+                <span className="case-label-type">Weapon case</span>
             </div>
         </div>
     )
@@ -37,24 +44,34 @@ const Opening = () => {
 
 const Roulette = (props) => {
 
+    const balance = 1119;
+    const open_price = props.the_case.price;
+    const isAffordable = balance < open_price;
+
     const [display, setDisplay] = useState({ // for rendering the relevant components
         roulette: "case", // case for displaying the case img, roulette for roulette
         button: "button", // button for normal button, opening for when the case is opening, blocked for when the button can't be pressed
     })
 
+    const spin = (e) => {
+        setDisplay({
+            roulette: "roulette",
+            button: "opening",
+        })
+    }
 
     return (
-        <>
+        <div className="upper-block">
         <div className="roulette-cont">
             { display.roulette == "case" ? <Case the_case={props.the_case} /> : "" }
-            { display.roulette == "roulette" ? <RouletteLine /> : "" }
+            { display.roulette == "roulette" ? <RouletteLine weapons={props.weapons} setDisplay={setDisplay}  button={display.button} /> : "" }
         </div>
 
         <div className="button-cont">
-            { display.button == "button" ? <Button /> : "" }
+            { display.button == "button" ? <Button clickHandle={spin} the_case={props.the_case} /> : "" }
             { display.button == "opening" ? <Opening /> : "" }
         </div>
-        </>
+        </div>
     )
 }
 
