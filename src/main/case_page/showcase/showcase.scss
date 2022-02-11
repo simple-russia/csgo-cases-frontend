@@ -33,10 +33,22 @@
         content: var(--drop-text);
         position: absolute;
         bottom: calc(100% - 25px);
-        left: 50px;
         color: rgb(102, 122, 177);
         font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
+    }
+
+    &::after {
+        content: var(--math-exp);
+        position: absolute;
+        bottom: calc(100% - 25px);
+        right: 50px;
+
+        padding: 0 3px;
+        color: white;
+        background-color: black;
+        font-family: sans-serif;
+        font-size: 11px;
     }
 
     > .weapon-card::before {
@@ -64,4 +76,19 @@
         font-family: sans-serif;
         font-size: 11px;
     }
+    
 }
+
+@media (max-width: 715px) {
+    .showcase-main {
+        padding: 34px 15px 0px;
+    }
+}
+
+@media (max-width: 650px) {
+    .showcase-main {
+        padding: 34px 10px 0px;
+        justify-content: center;
+    }
+}
+

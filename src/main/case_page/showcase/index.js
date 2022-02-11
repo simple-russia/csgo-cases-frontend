@@ -9,6 +9,9 @@ const Showcase = ({weapons}) => {
     const size = 100;
     const total_rarity = weapons.reduce( (sum, weapon) => sum + weapon.rarity, 0 )
 
+    const math_expectancy = weapons.reduce( (sum, weapon) => sum + weapon.price * (weapon.rarity / total_rarity), 0);
+    console.log(math_expectancy)
+
     let winExpect = 0; // the math expectancy of the gotten weapon's price
 
     const sortFn = (a, b) => {
@@ -17,7 +20,7 @@ const Showcase = ({weapons}) => {
 
     return (
         <div className="showcase-cont">
-            <div className="showcase-main" onClick={() => setShowStats(pr => !pr)}>
+            <div className="showcase-main" onClick={() => setShowStats(pr => !pr)} style={{"--math-exp": showStats ? `"Math expectancy is ${math_expectancy.toFixed(2)}$"` : ''}} >
                 {weapons.sort(sortFn).map( (el, index) =>
                     <Weapon
                       key={index}

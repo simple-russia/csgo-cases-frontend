@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import './roulette.scss';
 import RouletteLine, { startSpin } from "./roulette_line";
 
+import Translate from 'Translator/tr';
+
 
 const Button = ({clickHandle, the_case, ...props}) => {
     
@@ -12,7 +14,7 @@ const Button = ({clickHandle, the_case, ...props}) => {
         <div
           className={"button" + (canAfford ? '' : ' blocked')}
           onClick={clickHandle}
-          style={{ "--press-button": canAfford ? `"Press the button to open the case"` : `"You don't have enough money!"` }}>
+          style={{ "--press-button": canAfford ? `"${Translate('cases/press-the-button')}"` : `"${Translate('cases/not-enough-money')}"` }}>
             {the_case.price}$
         </div>
     )
@@ -37,7 +39,7 @@ const Opening = () => {
 
     return (
         <div className="opening">
-            <span>The case is opening...</span>
+            <span>{Translate('cases/case-is-opening')}...</span>
         </div>
     )
 }

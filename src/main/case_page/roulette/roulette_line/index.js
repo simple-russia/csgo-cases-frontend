@@ -25,35 +25,17 @@ const getRandomWeapon = (weapons, size, index) => {
     return <Weapon key={index} data={weapons[element]} size={size} />;
 }
 
-function getCoords(elem) { // get thr x/y element position
-    var box = elem.getBoundingClientRect();
-
-    var body = document.body;
-    var docEl = document.documentElement;
-
-    var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-    var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
-
-    var clientTop = docEl.clientTop || body.clientTop || 0;
-    var clientLeft = docEl.clientLeft || body.clientLeft || 0;
-
-    var top  = box.top +  scrollTop - clientTop;
-    var left = box.left + scrollLeft - clientLeft;
-
-    return { top: Math.round(top), left: Math.round(left) };
-}
 
 const doSpin = async (weapons, roulette, setDisplay) => {
 
     const winIndex = 40; // the inder of the winning weapon in the array
     const width = 95 + 7; // the width (with margin) of a weapon card
 
-    console.log('here', roulette, weapons, weapons[winIndex]);
-
-    const randomExtra = Math.random() * width;
+    const randomExtra = Math.random() * (width - 7);
     const spinDistance = 40 * width - 160 + randomExtra;
 
     const winWeapon = weapons[winIndex]
+    console.log(winWeapon)
 
     await new Promise((resolve) => {
         const KeyFrames = new KeyframeEffect(
@@ -78,6 +60,8 @@ const doSpin = async (weapons, roulette, setDisplay) => {
 }
 
 
+
+
 const RouletteLine = ({weapons, setDisplay, ...props}) => {
 
     const weapon_size = 95; // size of the weapons's card in PX
@@ -89,23 +73,25 @@ const RouletteLine = ({weapons, setDisplay, ...props}) => {
     useEffect( () => {
 
         if (props.button == "opening") {  
-            line_weapons = [];
+            let line_weapons = [];
             if (weapons.length) {
                 for (let i = 0; i < 45; i++) {
                     line_weapons.push(getRandomWeapon(weapons, weapon_size, i));
                 }
             }
             setLineWeapons(line_weapons);
-             
-            doSpin(weapons, rouletteRef.current, setDisplay);
         }
-    })
+    }, [props.button])
+
+    useEffect( () => {
+        doSpin(lineWeapons, rouletteRef.current, setDisplay);
+    }, [lineWeapons])
 
     return ( <>
         <div className='roulette-line-cont'>
             { weapons.length ?
                 <div className='weapons-line' ref={rouletteRef} >
-                    {line_weapons}
+                    {lineWeapons}
                 </div>
             : ""}
             <div className='roulette-line-decor'></div>
