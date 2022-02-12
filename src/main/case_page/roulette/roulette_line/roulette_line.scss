@@ -44,16 +44,16 @@
         linear-gradient(180deg, rgba(0, 0, 0, 0.6) 5%, transparent 5%),
         linear-gradient(0deg, rgba(0, 0, 0, 0.6) 4%, transparent 4%);
     
-        &::after {
-            content: '';
-            position: absolute;
-            left: calc(50% - 1px);
-            height: 100%;
-            width: 2px;
-            top: 0;
-            background-color: rgb(192, 132, 42);
-            box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.7);
-        }
+    &::after {
+        content: '';
+        position: absolute;
+        left: calc(50% - 1px);
+        height: 100%;
+        width: 2px;
+        top: 0;
+        background-color: rgb(192, 132, 42);
+        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.7);
+    }
     
 }
 

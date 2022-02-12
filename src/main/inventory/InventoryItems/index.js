@@ -12,9 +12,9 @@ const InventoryItems = ({isMobile, ...props}) => {
             <div className="inventory-items" >
                 <div className="inventory-list-cont-wrapper" >
                     <div>
-                        {[...Array(rows**2)].map( (_, index) =>
-                            <InventoryItem weapon={props.weapons[index]} key={index} />
-                        )}
+                        {[...Array(rows**2)].map( (_, index) => {
+                            return <InventoryItem weapon={props.weapons[index]} key={index} />
+                        })}
                     </div>
                 </div>
             </div>

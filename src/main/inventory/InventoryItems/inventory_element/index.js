@@ -6,10 +6,10 @@ const InventoryItem = ({weapon, ...props}) => {
     const hostname = "http://192.168.43.247:80/assets/"
 
     return (
-        <div className={"inventory-item" + ( weapon && weapon.stattrak ? " stattrak" : '') + (weapon ? " filled" : "")}>
+        <div className={"inventory-item" + ( weapon && weapon.isStattrak ? " stattrak" : '') + (weapon ? " filled" : "")}>
             { weapon ?
                 <img
-                    src={hostname + weapon.image}
+                    src={hostname + weapon.imageurl}
                     draggable="false"
                 ></img>
             :""}

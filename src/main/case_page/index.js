@@ -51,7 +51,7 @@ const Case = (props) => {
 
         axios.get(host + query).then( response => {
             let responses = response.data;
-
+            console.log('got ', responses.weapons)
             setCase(prev => {
                 return {...prev, "weapons": responses.weapons}
             } )
