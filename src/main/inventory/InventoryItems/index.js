@@ -6,8 +6,29 @@ const InventoryItems = ({isMobile, ...props}) => {
 
     const rows = 5; // amount of rows and columns of weapons in inventory
 
+    const pickItem = (e) => {
+        e.stopPropagation();
+
+        let weaponItem;
+        for (let i of document.querySelectorAll('.inventory-item')) {
+            if (i.contains(e.target)) {
+                weaponItem = i;
+                break
+            }
+        }
+
+        if (weaponItem) {   
+            const id = weaponItem.getAttribute('data-id');
+
+            if (id) { // set the active item
+                const item = (props.weapons.filter( el => el.id == id))[0];
+                props.setActiveItem(item);
+            }
+        }
+    }
+
     return (
-        <div className={"inventory-items-cont" + (isMobile ? " full" : "")} >
+        <div className={"inventory-items-cont" + (isMobile ? " full" : "")} onClick={pickItem} >
 
             <div className="inventory-items" >
                 <div className="inventory-list-cont-wrapper" >

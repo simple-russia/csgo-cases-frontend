@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import './roulette.scss';
 import RouletteLine, { startSpin } from "./roulette_line";
+import { useDispatch, useSelector } from "react-redux";
 
 import Translate from 'Translator/tr';
 
 
 const Button = ({clickHandle, the_case, ...props}) => {
     
-    const balance = 2111;
+    const balance = useSelector(state => state.balance);
     const canAfford = balance > the_case.price;
 
     return (
@@ -22,11 +23,11 @@ const Button = ({clickHandle, the_case, ...props}) => {
 
 import './case.scss';
 const Case = ( {the_case} ) => {
-    const hostname = 'http://192.168.43.247/assets';
+    const hostname = 'http://192.168.43.247/assets/';
 
     return (
         <div className="open-case-cont">
-            <img src={hostname + the_case.imageurl} draggable="false" ></img>
+            {the_case.imageurl ? <img src={hostname + the_case.imageurl} draggable="false" ></img> : ''}
             <div className="case-label">
                 <span className="case-label-name">{the_case.name}</span>
                 <span className="case-label-type">Weapon case</span>
@@ -46,6 +47,7 @@ const Opening = () => {
 
 const Roulette = (props) => {
 
+    const dispatch = useDispatch();
     const balance = 1119;
     const open_price = props.the_case.price;
     const isAffordable = balance < open_price;
@@ -56,6 +58,7 @@ const Roulette = (props) => {
     })
 
     const spin = (e) => {
+        dispatch({type: 'CHANGE_BALANCE', payload: -props.the_case.price})
         setDisplay({
             roulette: "roulette",
             button: "opening",

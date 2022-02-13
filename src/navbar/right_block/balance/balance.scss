@@ -9,6 +9,12 @@
     justify-content: flex-end;
     align-items: center;
 
+    > div {
+        min-width: 80px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
     > a {
         display: flex;
         align-items: center;

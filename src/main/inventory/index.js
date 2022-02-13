@@ -17,19 +17,6 @@ const Inventory = (props) => {
 
     useEffect( () => {
 
-        // const db_check = setInterval( () => {
-        //     getWeapons.then( data => {
-        //         if (data != 0) { // if the db is initialized and returned data
-        //             console.log(data);
-        //             clearInterval(db_check);
-        //         } else {
-        //             console.log('not now')
-        //         }
-        //     }).catch(
-        //         (e) => console.log(e)
-        //     )
-        // }, 1000)
-
         new Promise(getWeapons)
         .then( (weapons) => { setWeapons(weapons) } )
         .catch( (e) => console.log(e) )
@@ -43,8 +30,8 @@ const Inventory = (props) => {
         <>
         <Banner text="inventory" />
         <div className="inventory-cont" >
-            <InventoryItems weapons={weapons} page={page} isMobile={isMobile} />
-            { !isMobile && <ActiveItem /> }
+            <InventoryItems weapons={weapons} page={page} isMobile={isMobile} setActiveItem={setActiveItem} />
+            { !isMobile && <ActiveItem weapons={weapons} activeItem={activeItem} setWeapons={setWeapons} setActiveItem={setActiveItem} /> }
         </div>
         </>
     )

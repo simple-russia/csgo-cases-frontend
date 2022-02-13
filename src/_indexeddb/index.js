@@ -48,7 +48,7 @@ function makeTX(storeName, mode) {
 
 // main part
 const addWeapon = (weapon) => {
-    console.log('add weapon')
+
     let tx = makeTX('weapons', 'readwrite');
     tx.oncomplete = (ev) => {
         console.log(ev);
@@ -60,10 +60,10 @@ const addWeapon = (weapon) => {
     );
 
     request.onsuccess = (ev) => {
-        console.log('successfully added an object');
+        console.log('[CSGO] successfully added an item');
     };
     request.onerror = (err) => {
-        console.log('error in request to add');
+        console.log('[CSGO] error in request to add');
     };
 }
 
@@ -85,7 +85,6 @@ let getWeapons = (resolve, reject) => {
     getReq.onsuccess = (ev) => {
         //getAll was successful
         let request = ev.target; //request === getReq === ev.target
-        console.log('result is', request.result);
 
         resolve(request.result); // promisify
     };
@@ -97,5 +96,23 @@ let getWeapons = (resolve, reject) => {
 }
 // getWeapons = new Promise(getWeapons)
 
+const deleteWeapon = (id) => {
+    console.log('delete weapon')
+    let tx = makeTX('weapons', 'readwrite');
+    tx.oncomplete = (ev) => {
+        console.log(ev);
+    };
 
-export { addWeapon, getWeapons }
+    let store = tx.objectStore('weapons');
+    let request = store.delete(id);
+
+    request.onsuccess = (ev) => {
+        console.log('[CSGO] successfully deleted an item');
+    };
+    request.onerror = (err) => {
+        console.log('[CSGO] error in request to delete');
+    };
+}
+
+
+export { addWeapon, getWeapons, deleteWeapon }

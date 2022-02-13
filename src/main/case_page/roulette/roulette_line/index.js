@@ -3,6 +3,8 @@ import './roulette_line.scss';
 import Weapon from 'Components/weapon';
 import { addWeapon } from 'IDB/index.js';
 
+const speed = 12000 // number of ms of how long the case will be spinning
+
 const getRandomWeapon = (weapons, size, index, rig=null) => {
     // rig = 0
     // console.log('rig is', rig)
@@ -53,7 +55,7 @@ const doSpin = async (weapons, roulette, setDisplay, winIndex) => {
                 { left: `-${0}px` }, // keyframe
                 { left: `-${spinDistance}px` } // keyframe
             ],
-            { duration: 100, easing: 'cubic-bezier(.5,1,.5,1)'} // keyframe options
+            { duration: speed, easing: 'cubic-bezier(.5,1,.5,1)'} // keyframe options
         );
         let animation = new Animation(KeyFrames);
         animation.onfinish = () => {

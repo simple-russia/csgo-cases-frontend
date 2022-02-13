@@ -1,8 +1,147 @@
 
 
 .active-item {
-    background-color: yellow;
+    box-sizing: border-box;
+    border: 1px rgba(132, 137, 151, 0.473) solid;
+    background-color: rgba(10, 13, 27, 0.5);
 
     width: 31%;
     height: inherit;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.item-image-cont {
+    width: 100%;
+    padding-bottom: 80%;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-image: linear-gradient(90deg, transparent 10%, rgba(132, 137, 151, 0.4), transparent 90%);
+        top: 100%;
+    }
+}
+
+.item-img-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    background-image: radial-gradient(rgb(99 99 153 / 20%), transparent 55%);
+
+    > img {
+        width: 100%;
+        transform: scale(0.8);
+    }
+}
+
+.active-item > main {
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    > .item-name {
+        color: rgb(197, 197, 209);
+        padding: 15px 0;
+        font-size: 15px;
+        font-family: sans-serif, Arial, Helvetica;
+    }
+
+    > .item-text {
+        margin: 0;
+        color: rgb(81, 81, 85);
+        font-size: 12px;
+        font-family: sans-serif, Arial, Helvetica;
+        font-weight: normal;
+        margin-bottom: 5px;
+    }
+
+    > .item-description {
+        padding-top: 10px;
+        color: rgb(188, 188, 207);
+        font-size: 11px;
+        font-family: sans-serif, Arial, Helvetica;
+        font-weight: normal;
+        line-height: 130%;
+        margin-bottom: 5px;
+    }
+
+    .item-price-block {
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 14px;
+
+        > .price-block {
+            
+            color: rgb(98, 98, 107);
+            font-size: 15px;
+            font-family: sans-serif, Arial, Helvetica;
+            font-weight: normal;
+            margin-bottom: 10px;
+            
+            > .item-price {
+                color: rgb(202, 213, 218);
+                font-size: 16px;
+
+                &::after {
+                    content: '$';
+                    margin-left: 3px;
+                }
+            }
+        }
+    }
+
+    > .item-rarity > span {
+        font-weight: bold;
+        &.White { color: rgb(92, 92, 165) }
+        &.Blue { color: blue }
+        &.Blue { color: rgb(85, 85, 231) }
+        &.Purple { color: rgb(135, 99, 182) }
+        &.Pink { color: rgb(171, 52, 182) }
+        &.Red { color: rgb(214, 65, 65) }
+        &.Gold { color: blue }
+    }
+}
+
+
+.sell-button {
+    background: rgb(74, 110, 50);
+    border-radius: 3px;
+    padding: 7px 5px;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+
+    color: rgb(218, 224, 220);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
+    &:active {
+        filter: brightness(0.6);
+    }
+}
+
+.active-item.not-selected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #909097;
+    padding: 15px 0;
+    font-size: 15px;
+    font-family: sans-serif, Arial, Helvetica;
+    padding: 20px;
+    text-align: center;
+    border: 1px rgba(132, 137, 151, 0.473) dashed;
 }
