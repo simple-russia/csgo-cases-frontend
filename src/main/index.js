@@ -17,6 +17,13 @@ const Main = (props) => {
 
   useSelector(state => state.language); // to trigger language changing
 
+  const sellItem = (activeItem) => {
+    dispatch({type: 'CHANGE_BALANCE', payload: activeItem.price})
+    deleteWeapon(activeItem.id);
+    setWeapons(weapons.filter(el => el.id != activeItem.id))
+    setActiveItem('');
+  }
+
   return ( 
     <div className="main">
       <div className="bg"></div>

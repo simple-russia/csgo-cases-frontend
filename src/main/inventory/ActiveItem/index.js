@@ -3,7 +3,7 @@ import './active_item.scss';
 import { useDispatch } from "react-redux";
 import { deleteWeapon } from "IDB";
 
-const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, ...props}) => {
+const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, handleSell, ...props}) => {
 
     const host = 'http://192.168.43.247/assets';
     const dispatch = useDispatch();
@@ -16,12 +16,13 @@ const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, ...props}) 
         )
     }
 
-    const handleSell = () => {
-        dispatch({type: 'CHANGE_BALANCE', payload: activeItem.price})
-        deleteWeapon(activeItem.id);
-        setWeapons(weapons.filter(el => el.id != activeItem.id))
-        setActiveItem('');
-    }
+
+    // const handleSell = () => {
+    //     dispatch({type: 'CHANGE_BALANCE', payload: activeItem.price})
+    //     deleteWeapon(activeItem.id);
+    //     setWeapons(weapons.filter(el => el.id != activeItem.id))
+    //     setActiveItem('');
+    // }
 
     return (
         <div className="active-item">
@@ -41,7 +42,7 @@ const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, ...props}) 
 
                 <div className="item-price-block">
                     <div className="price-block">Price: <span className="item-price">{activeItem.price}</span></div>
-                    <div className="sell-button" onClick={handleSell}>
+                    <div className="sell-button" onClick={ () => handleSell(activeItem) }>
                         Sell
                     </div>
                 </div>
