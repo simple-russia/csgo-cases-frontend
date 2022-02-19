@@ -1,6 +1,6 @@
 
 const configs = {
-    min_weapons: 3, // the minimum amount of weapons to spin a case
+    min_weapons: 2, // the minimum amount of weapons to spin a case
 }
 
 const configReducer = (state = configs, action) => {

@@ -99,6 +99,12 @@ const RouletteLine = ({weapons, setDisplay, ...props}) => {
             const handleWin = () => {
                 // assemble the won weapon project
                 const winWeapon = {...line_weapons[winIndex]};
+
+                if (Object.keys(winWeapon).length === 0) {
+                    console.warn('[CSGO] Can\'t add a weapon as an empty object');
+                    return null;
+                }
+
                 // give stattrak
                 winWeapon.isStattrak = false;
                 if (winWeapon.statrak) {

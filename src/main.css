@@ -35,6 +35,11 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: inset 2px 2px 2px 0 rgba(130, 188, 206, 0.05);
 }
 
+body.no-scroll {
+    height: 100vh;
+    overflow: hidden;
+}
+
 /* global values */
 
 /* animation-name: appear;

@@ -15,6 +15,12 @@ const ModalLanguage = ({closeFn, ...props}) => {
         pt: 'Português',
     }
 
+    useEffect( () => { // no scroll when there's a modal
+        document.body.classList.add('no-scroll')
+
+        return _ => document.body.classList.remove('no-scroll')
+    }, [])
+
     const handleOuterClick = (e) => {
         e.stopPropagation();
 

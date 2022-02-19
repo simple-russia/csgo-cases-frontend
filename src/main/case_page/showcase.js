@@ -11,8 +11,6 @@ const Showcase = ({weapons}) => {
 
     const math_expectancy = weapons.reduce( (sum, weapon) => sum + weapon.price * (weapon.rarity / total_rarity), 0);
 
-    let winExpect = 0; // the math expectancy of the gotten weapon's price
-
     const sortFn = (a, b) => {
         return a.index - b.index
     }

@@ -1,7 +1,7 @@
 
 let balance = window.localStorage.getItem('balance'); // if user already has a language
 if (!balance) { // otherwise what html doc renders
-    balance = 5000;
+    balance = 50;
 } else {
     balance = parseFloat(balance);
 }

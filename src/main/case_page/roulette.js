@@ -6,16 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import Translate from 'Translator/tr';
 
 
-const Button = ({clickHandle, the_case, ...props}) => {
+const Button = ({clickHandle, the_case, enoughWeapons, ...props}) => {
     
     const balance = useSelector(state => state.balance);
-    const canAfford = balance > the_case.price;
+    const canAfford = balance >= the_case.price;
+
+    let press_text = 'cases/press-the-button';
+    if (!canAfford) { press_text = 'cases/not-enough-money' }
+    if (!enoughWeapons) { press_text = 'cases/not-enough-weapons' }
 
     return (
         <div
-          className={"button" + (canAfford ? '' : ' blocked')}
+          className={"button" + (canAfford && enoughWeapons ? '' : ' blocked')}
           onClick={clickHandle}
-          style={{ "--press-button": canAfford ? `"${Translate('cases/press-the-button')}"` : `"${Translate('cases/not-enough-money')}"` }}>
+          style={{ "--press-button": `"${Translate(press_text)}"` }}>
             {the_case.price}$
         </div>
     )
@@ -50,7 +54,8 @@ const Roulette = (props) => {
     const dispatch = useDispatch();
     const balance = 1119;
     const open_price = props.the_case.price;
-    const isAffordable = balance < open_price;
+    const min_weapons = useSelector( state => state.config.min_weapons);
+    const enoughWeapons = props.weapons.length >= min_weapons;
 
     const [display, setDisplay] = useState({ // for rendering the relevant components
         roulette: "case", // case for displaying the case img, roulette for roulette
@@ -58,6 +63,12 @@ const Roulette = (props) => {
     })
 
     const spin = (e) => {
+
+        if (!enoughWeapons) {
+            console.warn(`[CSGO] The case doesn't have enough weapons (${min_weapons}+) to get opened`);
+            return ;
+        }
+
         dispatch({type: 'CHANGE_BALANCE', payload: -props.the_case.price})
         setDisplay({
             roulette: "roulette",
@@ -73,7 +84,7 @@ const Roulette = (props) => {
         </div>
 
         <div className="button-cont">
-            { display.button == "button" ? <Button clickHandle={spin} the_case={props.the_case} /> : "" }
+            { display.button == "button" ? <Button clickHandle={spin} the_case={props.the_case} enoughWeapons={enoughWeapons} /> : "" }
             { display.button == "opening" ? <Opening /> : "" }
         </div>
         </div>

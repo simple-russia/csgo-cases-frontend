@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './css/mobile_active.scss';
 import { useDispatch } from "react-redux";
 
@@ -8,6 +8,12 @@ const MobileActive = ({activeItem, setActiveItem, handleSell}) => {
     const hide = (e) => {
         setActiveItem('');
     }
+
+    useEffect( () => { // no scroll when there's a modal
+        document.body.classList.add('no-scroll')
+
+        return _ => document.body.classList.remove('no-scroll')
+    }, [])
 
     const host = "http://192.168.43.247/assets/"
 
