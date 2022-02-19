@@ -1,13 +1,9 @@
 .mobile-active-item {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(14, 14, 27, 0.97);
-    top: 0;
-    left: 0;
-    z-index: 30;
 
-    box-sizing: border-box;
+    animation-name: appear;
+    animation-duration: 150ms;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-out;
 
     > .mobile-cross {
         position: absolute;
@@ -58,7 +54,7 @@
 }
 
 .mobile-item-name {
-    color: #c5c5d1;
+    color: var(--blue-white-10);
     font-size: 24px;
     font-family: sans-serif, Arial, Helvetica;
     text-align: center;
@@ -76,7 +72,7 @@
 
 .mobile-description {
     padding-top: 10px;
-    color: #bcbccf;
+    color: var(--blue-white-10);
     text-align: center;
     font-size: 14px;
     font-family: sans-serif, Arial, Helvetica;
@@ -88,7 +84,7 @@
 .mobile-price-block {
     position: absolute;
     bottom: 17%;
-    width: min(300px, 80%);
+    width: 100%;
 
     > div {
         width: 100%;
@@ -100,6 +96,7 @@
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
         padding: 7px 5px;
+        box-sizing: border-box;
         cursor: pointer;
         color: #badfc6;
         font-family: Arial, Helvetica, sans-serif;
@@ -107,11 +104,12 @@
     }
 
     > .mobile-price {
-        color: #62626b;
+        color: var(--grey-0);
         font-size: 22px;
         font-family: sans-serif, Arial, Helvetica;
         font-weight: normal;
         margin-bottom: 10px;
+        text-align: center;
     
         > span {
             color: white;

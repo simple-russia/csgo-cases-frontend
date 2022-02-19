@@ -1,5 +1,4 @@
 import React from "react";
-import InventoryItems from "..";
 
 const InventoryItem = ({weapon, ...props}) => {
 

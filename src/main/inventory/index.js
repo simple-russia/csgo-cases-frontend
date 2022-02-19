@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import ActiveItem from "./ActiveItem";
-import './inventory.scss';
-import InventoryItems from "./InventoryItems";
+import ActiveItem from "./active_item";
+import './css/inventory.scss';
+import InventoryItems from "./inventory_items";
 import { useSelector } from "react-redux";
-import MobileActive from "./MobileActive";
+import MobileActive from "./mobile_active";
 
 import Banner from 'Components/banner'
 import { getWeapons } from "IDB/index.js";
@@ -18,12 +18,25 @@ const Inventory = (props) => {
     const [sellModal, setSellModal] = useState('')
 
     useEffect( () => {
-
+        // read weapons from IDB
         new Promise(getWeapons)
         .then( (weapons) => { setWeapons(weapons) } )
-        .catch( (e) => console.log(e) )
+        .catch( (e) => console.warn(e) )
 
     }, [])
+
+    useEffect( () => {
+
+        for (let i of document.querySelectorAll('.inventory-item.active')) {
+            i.classList.remove('active')
+        }
+        
+        if (activeItem) {
+            let weaponItem = document.querySelector(`[data-id=${activeItem.id}]`)
+            weaponItem.classList.add('active');
+        }
+
+    }, [activeItem])
 
     const handleSell = (weapon) => {
         setSellModal(weapon);

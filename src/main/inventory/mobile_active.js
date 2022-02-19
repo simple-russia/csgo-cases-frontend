@@ -1,10 +1,9 @@
 import React from "react";
-import './mobile_active.scss';
+import './css/mobile_active.scss';
 import { useDispatch } from "react-redux";
 
 const MobileActive = ({activeItem, setActiveItem, handleSell}) => {
 
-    const dispatch = useDispatch();
 
     const hide = (e) => {
         setActiveItem('');
@@ -13,7 +12,7 @@ const MobileActive = ({activeItem, setActiveItem, handleSell}) => {
     const host = "http://192.168.43.247/assets/"
 
     return (
-        <div className="mobile-active-item">
+        <div className="mobile-active-item modal">
 
             <div className="mobile-cross" onClick={hide}></div>
 

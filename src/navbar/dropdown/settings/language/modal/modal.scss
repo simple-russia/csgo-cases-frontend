@@ -13,7 +13,10 @@
     justify-content: center;
     align-items: center;
 
-    animation: manifest 100ms ease-out;
+    animation-name: appear;
+    animation-duration: 150ms;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-out; 
 
     > div {
         width: 600px;

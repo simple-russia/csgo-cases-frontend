@@ -55,6 +55,13 @@
 
     display: flex;
     align-items: center;
+
+    &.active {
+        cursor: default;
+        pointer-events: none;
+        filter: brightness(0.7);
+        box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.5);
+    }
     
     &.filled {
         cursor: pointer;

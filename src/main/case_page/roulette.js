@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './roulette.scss';
+import './css/roulette.scss';
 import RouletteLine, { startSpin } from "./roulette_line";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,7 +21,7 @@ const Button = ({clickHandle, the_case, ...props}) => {
     )
 }
 
-import './case.scss';
+import './css/case.scss';
 const Case = ( {the_case} ) => {
     const hostname = 'http://192.168.43.247/assets/';
 

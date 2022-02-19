@@ -1,7 +1,7 @@
 import React from "react";
-import './active_item.scss';
+import './css/active_item.scss';
 import { useDispatch } from "react-redux";
-import { deleteWeapon } from "IDB";
+
 
 const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, handleSell, ...props}) => {
 

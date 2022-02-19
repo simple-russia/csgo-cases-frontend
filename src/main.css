@@ -1,3 +1,13 @@
+
+:root {
+    /* colors */
+    --blue-white-05: #e3f2f3;
+    --blue-white-10: #bcbccf;
+    --blue-white-30: #8c9fb6;
+    --grey-0: #62626b;
+}
+
+
 * {
     -webkit-tap-highlight-color: transparent;
 }
@@ -23,4 +33,55 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: rgb(35, 44, 66);
     box-shadow: inset 2px 2px 2px 0 rgba(130, 188, 206, 0.05);
+}
+
+/* global values */
+
+/* animation-name: appear;
+animation-duration: 150ms;
+animation-iteration-count: initial;
+animation-timing-function: ease-out; */
+@keyframes appear {
+    from {
+        opacity: 0;
+        /* transform: translateX(100%); */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes shine {
+    
+}
+
+
+.modal {
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(14, 14, 27, 0.97);
+    top: 0;
+    left: 0;
+    z-index: 30;
+
+}
+
+.button-1 {
+
+    /* smth */
+    border-radius: 4px;
+    font-size: 16px;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e1ecee;
+    user-select: none;
+    box-sizing: border-box;
+
 }

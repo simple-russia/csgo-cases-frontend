@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './roulette_line.scss';
+import './css/roulette_line.scss';
 import Weapon from 'Components/weapon';
 import { addWeapon } from 'IDB/index.js';
 

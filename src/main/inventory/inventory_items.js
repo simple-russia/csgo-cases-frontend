@@ -1,6 +1,6 @@
 import React from "react";
-import './inventory_items.scss';
-import InventoryItem from './inventory_element';
+import './css/inventory_items.scss';
+import InventoryItem from './inventory_item';
 
 const InventoryItems = ({isMobile, ...props}) => {
 

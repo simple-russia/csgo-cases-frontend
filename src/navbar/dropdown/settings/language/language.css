@@ -36,6 +36,11 @@
     left: 5px;
     height: 100%;
     display: flex;
+
+    animation-name: appear;
+    animation-duration: 150ms;
+    animation-iteration-count: initial;
+    animation-timing-function: ease-out; 
 }
 
 .language-icon-cont {

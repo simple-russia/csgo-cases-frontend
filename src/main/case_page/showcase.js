@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './showcase.scss';
+import './css/showcase.scss';
 import Weapon from "Components/weapon";
 
 const Showcase = ({weapons}) => {

@@ -6,6 +6,11 @@ const uid = () => {
   randy = randy.toString(36).slice(0, 12).padStart(12, '0').toLocaleUpperCase();
   return ''.concat(timmy, '-', randy);
 };
+
+// check if the obj is empty
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 // make a transaction
 
 let db = 0;
@@ -49,9 +54,14 @@ function makeTX(storeName, mode) {
 // main part
 const addWeapon = (weapon) => {
 
+    if ( isEmpty(weapon) ) {
+        throw '[CSGO] Can\'t add an empty object to the datavase!';
+        return ;
+    }
+
     let tx = makeTX('weapons', 'readwrite');
     tx.oncomplete = (ev) => {
-        console.log(ev);
+        // console.log(ev);
     };
 
     let store = tx.objectStore('weapons');
@@ -73,7 +83,6 @@ let getWeapons = (resolve, reject) => {
         resolve(0)
     }
 
-    console.log('started')
     let tx = makeTX('weapons', 'readwrite');
     tx.oncomplete = (ev) => {
         //transaction for reading all objects is complete
@@ -100,7 +109,7 @@ const deleteWeapon = (id) => {
     console.log('delete weapon')
     let tx = makeTX('weapons', 'readwrite');
     tx.oncomplete = (ev) => {
-        console.log(ev);
+        // console.log(ev);
     };
 
     let store = tx.objectStore('weapons');
