@@ -21,13 +21,15 @@ const SellModal = ({weapon, setSellModal, setWeapons, weapons, setActiveItem}) =
 
     return (
         <div className="sell-modal modal">
-            <div className="sell-modal-text">
-                <p>Are you sure you wanna sell <span>{weapon.type + ' | ' + weapon.style}</span> for <span>{weapon.price}</span>?</p>
-            </div>
+            <div>
+                <div className="sell-modal-text">
+                    <p>Are you sure you wanna sell <span>{weapon.type + ' | ' + weapon.style}</span> for <span>{weapon.price}</span></p>
+                </div>
 
-            <div className="sell-buttons">
-                <div onClick={sell} className="sell-yes sell-button button-1">sell</div>
-                <div onClick={cancel} className="sell-no sell-button button-1">cancel</div>
+                <div className="sell-buttons">
+                    <div onClick={sell} className="sell-yes sell-button button-1">sell</div>
+                    <div onClick={cancel} className="sell-no sell-button button-1">cancel</div>
+                </div>
             </div>
         </div>
     )

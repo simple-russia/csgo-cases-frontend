@@ -5,6 +5,9 @@
     --blue-white-10: #bcbccf;
     --blue-white-30: #8c9fb6;
     --grey-0: #62626b;
+    --blue-black-05: #07060ffa;
+    --blue-black-10: #11111bff;
+    --blue-black-15: #1b1b29ff;
 }
 
 
@@ -67,7 +70,7 @@ animation-timing-function: ease-out; */
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(14, 14, 27, 0.97);
+    background-color: var(--blue-black-05);
     top: 0;
     left: 0;
     z-index: 30;

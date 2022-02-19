@@ -47,7 +47,7 @@ const ModalLanguage = ({closeFn, ...props}) => {
     // } )
 
     return (
-        <div className="language-modal" onClick={handleOuterClick}>
+        <div className="language-modal modal" onClick={handleOuterClick}>
             <div>
 
                 <div className="modal-upper-cont">

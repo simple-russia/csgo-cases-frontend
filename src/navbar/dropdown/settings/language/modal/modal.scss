@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background-color: rgba(7, 6, 15, 0.98);
+    background-color: var(--blue-black-05);
     top: 0;
     left: 0;
     z-index: 100;
@@ -21,9 +21,9 @@
     > div {
         width: 600px;
         // height: 400px;
-        background-color: rgb(17, 17, 27);
+        background-color: var(--blue-black-10);
         border-radius: 8px;
-        border: 1px rgb(39, 44, 58) solid;
+        border: 1px var(--blue-black-10) solid;
         overflow: hidden;
     }
 }
@@ -34,7 +34,7 @@
 .modal-upper-cont {
     width: 100%;
     height: 120px;
-    background-color: rgb(27, 27, 41);
+    background-color: var(--blue-black-15);
     border-bottom: 1px solid rgb(39, 44, 58);
     padding: 1px;
     display: flex;
@@ -144,7 +144,6 @@
 
         &:not(.loading) > div {
             width: 100%;
-            height: 60%;
             border-radius: 0;
             box-sizing: border-box;
         }
