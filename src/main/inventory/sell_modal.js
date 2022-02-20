@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './css/sell_modal.scss';
 import { deleteWeapon } from "IDB";
 import { useDispatch } from "react-redux";

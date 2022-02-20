@@ -24,6 +24,8 @@ const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, handleSell,
     //     setActiveItem('');
     // }
 
+    const stattrak = activeItem.isStattrak ? 'StatTrak™ ' : '';
+
     return (
         <div className="active-item">
             <div className="item-image-cont">
@@ -34,7 +36,7 @@ const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, handleSell,
 
             <main>
                 <div className="item-name">
-                    <span className="type">{activeItem.type}</span>{" | "}<span className="style">{activeItem.style}</span>
+                    {stattrak}<span className="type">{activeItem.type}</span>{" | "}<span className="style">{activeItem.style}</span>
                 </div>
                 <h1 className="item-text item-quality">Exterior: {activeItem.quality}</h1>
                 <h1 className="item-text item-rarity">Rarity: <span className={activeItem.color_name}>{activeItem.color_name}</span></h1>

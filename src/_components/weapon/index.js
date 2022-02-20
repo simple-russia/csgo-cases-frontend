@@ -3,7 +3,8 @@ import './weapon.scss';
 
 const Weapon = ({data, ...props}) => {
 
-    const host = "http://192.168.43.247:80/assets"
+    const host = "http://192.168.43.247:80/assets";
+    const stattrak = data.isStattrak ? 'StatTrak™ ' : '';
 
     // props.size - the width and height of the weapon card.
     return (
@@ -12,7 +13,7 @@ const Weapon = ({data, ...props}) => {
                 <img src={host + data.imageurl} draggable="false" ></img>
             </div>
             <div className={"label " + data.color.toLowerCase()}>
-                <span className="type" >{data.type}</span>
+                <span className="type" >{stattrak + data.type}</span>
                 <span className="style" >{data.style}</span>
             </div>
         </div>

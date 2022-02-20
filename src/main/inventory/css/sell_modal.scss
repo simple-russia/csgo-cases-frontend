@@ -81,7 +81,7 @@
         }
         &:active {
             background-color: rgba(66, 68, 71, 0.8);
-            border: none;
+            border: 1px rgba(66, 68, 71, 0.8) solid;
             color: #131418;
         }
     }

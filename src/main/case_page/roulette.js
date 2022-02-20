@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './css/roulette.scss';
-import RouletteLine, { startSpin } from "./roulette_line";
+import RouletteLine from "./roulette_line";
+import WinWeapon from "./win_weapon";
 import { useDispatch, useSelector } from "react-redux";
 
 import Translate from 'Translator/tr';
@@ -52,10 +53,10 @@ const Opening = () => {
 const Roulette = (props) => {
 
     const dispatch = useDispatch();
-    const balance = 1119;
-    const open_price = props.the_case.price;
     const min_weapons = useSelector( state => state.config.min_weapons);
     const enoughWeapons = props.weapons.length >= min_weapons;
+
+    const [winWeapon, setWinWeapon] = useState({});
 
     const [display, setDisplay] = useState({ // for rendering the relevant components
         roulette: "case", // case for displaying the case img, roulette for roulette
@@ -80,13 +81,21 @@ const Roulette = (props) => {
         <div className="upper-block">
         <div className="roulette-cont">
             { display.roulette == "case" ? <Case the_case={props.the_case} /> : "" }
-            { display.roulette == "roulette" ? <RouletteLine weapons={props.weapons} setDisplay={setDisplay}  button={display.button} /> : "" }
+            { display.roulette == "roulette" ? <RouletteLine
+                                                  weapons={props.weapons}
+                                                  display={display}
+                                                  setDisplay={setDisplay}
+                                                  button={display.button}
+                                                  setWinWeapon={setWinWeapon}
+                                                /> : "" }
         </div>
 
         <div className="button-cont">
             { display.button == "button" ? <Button clickHandle={spin} the_case={props.the_case} enoughWeapons={enoughWeapons} /> : "" }
             { display.button == "opening" ? <Opening /> : "" }
         </div>
+
+        {Object.keys(winWeapon).length ? <WinWeapon weapon={winWeapon} setWinWeapon={setWinWeapon} /> : ''}
         </div>
     )
 }

@@ -23,22 +23,33 @@ const getRandomWeapon = (weapons, size, index, rig=null) => {
         }
         sum += weapons[i].rarity
     }
+    
+    let weapon;
 
     element = element >= weapons.length || element < 0 ? 0 : element;
 
     if (rig != undefined) {
         try {
-            return weapons[rig];
+            element = rig;
         } catch (e) {
             console.log('error is', e)
         }
     }
 
-    return weapons[element] ;
+    weapon = {...weapons[element]}
+    weapon.isStattrak = false;
+    if (weapon.statrak) {
+        let st_chance = Math.floor(Math.random() * 10); 
+        if (st_chance == 0) {
+            weapon.isStattrak = true;
+        }
+    }
+
+    return weapon ;
 }
 
 
-const doSpin = async (weapons, roulette, setDisplay, winIndex) => {
+const doSpin = (weapons, roulette, setDisplay, winIndex, setWinWeapon) => {
 
     // const winIndex = 40; // the inder of the winning weapon in the array
     const width = 95 + 7; // the width (with margin) of a weapon card
@@ -46,38 +57,44 @@ const doSpin = async (weapons, roulette, setDisplay, winIndex) => {
     const randomExtra = Math.random() * (width - 7);
     const spinDistance = 40 * width - 160 + randomExtra;
 
-    const winWeapon = weapons[winIndex]
+    const winWeapon = weapons[winIndex];
 
-    await new Promise((resolve) => {
-        const KeyFrames = new KeyframeEffect(
-            roulette, // element to animate
-            [
-                { left: `-${0}px` }, // keyframe
-                { left: `-${spinDistance}px` } // keyframe
-            ],
-            { duration: speed, easing: 'cubic-bezier(.5,1,.5,1)'} // keyframe options
-        );
-        let animation = new Animation(KeyFrames);
-        animation.onfinish = () => {
-            setDisplay({
-                roulette: "roulette",
-                button: "button",
-            })
-            roulette.style = `left: -${spinDistance}px`;
-            resolve();
-        }
-        animation.play();
-    })
+
+    const KeyFrames = new KeyframeEffect(
+        roulette, // element to animate
+        [
+            { left: `-${0}px` }, // keyframe
+            { left: `-${spinDistance}px` } // keyframe
+        ],
+        { duration: speed, easing: 'cubic-bezier(.5,1,.5,1)'} // keyframe options
+    );
+    let animation = new Animation(KeyFrames);
+
+
+    animation.onfinish = () => {
+        setDisplay({
+            roulette: "roulette",
+            button: "button",
+        });
+        setWinWeapon(winWeapon)
+        roulette.style = `left: -${spinDistance}px`;
+        // resolve();
+    }
+    animation.play();
+
+
+    return animation;
 }
 
 
 
 
-const RouletteLine = ({weapons, setDisplay, ...props}) => {
+const RouletteLine = ({weapons, display, setDisplay, setWinWeapon, ...props}) => {
 
     const weapon_size = 95; // size of the weapons's card in PX
     const rouletteRef = useRef();
     const winIndex = 40; // the index of the win weapon in the line
+    const anim = useRef(); // the animation object of the current spinning anim (to cancel / finish)
 
     const [lineWeapons, setLineWeapons] = useState([]);
 
@@ -104,15 +121,7 @@ const RouletteLine = ({weapons, setDisplay, ...props}) => {
                     console.warn('[CSGO] Can\'t add a weapon as an empty object');
                     return null;
                 }
-
-                // give stattrak
-                winWeapon.isStattrak = false;
-                if (winWeapon.statrak) {
-                    let st_chance = Math.floor(Math.random() * 10); 
-                    if (st_chance == 0) {
-                        winWeapon.isStattrak = true;
-                    }
-                }
+                
                 // give quality (multiplies the cost)
                 const qualities = {
                     0: ['Factory New'  , 2.00 ],
@@ -148,8 +157,25 @@ const RouletteLine = ({weapons, setDisplay, ...props}) => {
     }, [props.button])
 
     useEffect( () => {
-        doSpin(lineWeapons, rouletteRef.current, setDisplay, winIndex);
+        if (lineWeapons.length === 0) {
+            return ;
+        }
+        anim.current = doSpin(lineWeapons, rouletteRef.current, setDisplay, winIndex, setWinWeapon);
     }, [lineWeapons])
+
+    useEffect( () => {
+        // clean the anim after unmounting
+        return _ => {
+            if (anim.current) {
+                console.log('[CSGO] Cleaned the spin animation after unmount')
+                anim.current.cancel();
+            }
+        }
+    }, [])
+
+    const skipAnim = () => {
+        anim.current.finish()
+    }
 
     return ( <>
         <div className='roulette-line-cont'>
@@ -163,6 +189,7 @@ const RouletteLine = ({weapons, setDisplay, ...props}) => {
             <div className='roulette-line-decor'></div>
             <div className='roulette-line-shine'></div>
         </div>
+        { display.button == "opening" ?  <span onClick={skipAnim}>{"skip"}</span> : ''}
     </> )
 }
 

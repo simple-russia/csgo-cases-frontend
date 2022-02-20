@@ -16,6 +16,23 @@
     box-shadow:
         inset 0 0 2px 0px rgba(255, 255, 255, 0.1),
         0 0 1px 1px rgb(14, 14, 14);
+
+    > span {
+        position: absolute;
+        bottom: 14px;
+        color: var(--blue-white-50);
+        font-size: 13px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(0.8);
+        }
+        &:active {
+            filter: brightness(0.6);
+        }
+    }
 }
 
 .button-cont {

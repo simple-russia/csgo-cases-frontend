@@ -4,10 +4,17 @@
     --blue-white-05: #e3f2f3;
     --blue-white-10: #bcbccf;
     --blue-white-30: #8c9fb6;
-    --grey-0: #62626b;
+    --blue-white-50: rgb(98, 97, 141);
     --blue-black-05: #07060ffa;
     --blue-black-10: #11111bff;
     --blue-black-15: #1b1b29ff;
+
+    --grey-0: #62626b;
+    --grey-10: #29292b;
+    --grey-white-05: #bfc1c4;
+
+    --green-30: #415c0c;
+    --green-30-gradient: linear-gradient(rgba(120, 170, 122, 0.26), transparent);
 }
 
 
@@ -36,11 +43,6 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: rgb(35, 44, 66);
     box-shadow: inset 2px 2px 2px 0 rgba(130, 188, 206, 0.05);
-}
-
-body.no-scroll {
-    height: 100vh;
-    overflow: hidden;
 }
 
 /* global values */
