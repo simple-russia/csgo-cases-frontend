@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import './css/mobile_active.scss';
-import { useDispatch } from "react-redux";
 
 const MobileActive = ({activeItem, setActiveItem, handleSell}) => {
 
+    const stattrak = activeItem.isStattrak ? 'StatTrak™ ' : '';
 
     const hide = (e) => {
         setActiveItem('');
@@ -28,7 +28,7 @@ const MobileActive = ({activeItem, setActiveItem, handleSell}) => {
                     <img src={host + activeItem.imageurl}></img>
                 </div>
 
-                <h1 className="mobile-item-name">{activeItem.type + ' | ' + activeItem.style}</h1>
+                <h1 className="mobile-item-name">{stattrak + activeItem.type + ' | ' + activeItem.style}</h1>
                 <h1 className="mobile-item-quality">Quality: {activeItem.quality}</h1>
                 <h1 className="mobile-item-color">Rarity: {activeItem.color_name}</h1>
                 <p className="mobile-description">

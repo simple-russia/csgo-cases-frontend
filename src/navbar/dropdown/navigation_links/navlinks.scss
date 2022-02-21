@@ -21,9 +21,10 @@
             color: rgba(55, 55, 65, 0.8);
             // cursor: default;
             // pointer-events: none;
+
         }
         
-        &:hover {
+        &:not(.active):hover {
             background-color:  rgba(59, 59, 99, 0.1);
         }
     }

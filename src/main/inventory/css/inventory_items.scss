@@ -15,12 +15,100 @@
     position: relative;
 }
 
+
+
 .inventory-page {
-    background-color: lawngreen;
+    // background-color: lawngreen;
 
     width: 100%;
     height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+        display: flex;
+        align-items: center;
+
+        > input {
+            width: 35px;
+            margin-right: 5px;
+            border-radius: 5px;
+
+            background-color: #09090a;
+            border: 1px rgb(58, 58, 75) solid;
+            box-shadow: 0 0 4px 0 rgba(255, 255, 255, 0.05);
+            color: white;
+            padding: 1px 0 0;
+            text-align: center;
+            font-size: 16px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        > span {
+            color: var(--blue-white-50);
+            font-family: Arial, Helvetica, sans-serif;
+            user-select: none;
+            display: inline-block;
+            padding-right: 7px;
+        }
+
+        > .move-page {
+            height: 25px;
+            width: 45px;
+            background-color: #24243a;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.2), transparent 75%);
+            box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            margin: 0 10px;
+            outline: 1px solid rgb(22, 21, 22);
+            cursor: pointer;
+    
+            
+            &:hover {
+                filter: brightness(0.8);
+            }
+            &:active {
+                filter: brightness(0.6);
+            }
+
+            &.inactive {
+                cursor: default;
+                background-image: none;
+                pointer-events: none;
+                filter: brightness(0.8);
+                background-color: #2f2f3a;
+                box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.5);
+            }
+
+            > div {
+                background-image: url('Img/arrow_down.svg');
+                width: 100%;
+                height: 100%;
+
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 10px 10px;
+            }
+        }
+
+        > .previous-page > div {
+            transform: rotate(90deg);
+            filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.2))
+        }
+        > .next-page > div {
+            transform: rotate(-90deg);
+            filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 0.2))
+        }
+    }
 }
+
+
 
 .inventory-list-cont-wrapper {
     height: 100%;

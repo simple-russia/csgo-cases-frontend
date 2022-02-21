@@ -5,9 +5,8 @@ import { addWeapon } from 'IDB/index.js';
 
 const speed = 12000 // number of ms of how long the case will be spinning
 
-const getRandomWeapon = (weapons, size, index, rig=null) => {
-    // rig = 0
-    // console.log('rig is', rig)
+const getRandomWeapon = (weapons, rig=null) => {
+
     const total_rarity = weapons.reduce( (sum, el) => sum + el.rarity, 0)
 
     // this is where the random choice happens.
@@ -49,7 +48,7 @@ const getRandomWeapon = (weapons, size, index, rig=null) => {
 }
 
 
-const doSpin = (weapons, roulette, setDisplay, winIndex, setWinWeapon) => {
+const doSpin = (roulette, setDisplay, setWinWeapon, winWeapon) => {
 
     // const winIndex = 40; // the inder of the winning weapon in the array
     const width = 95 + 7; // the width (with margin) of a weapon card
@@ -57,7 +56,6 @@ const doSpin = (weapons, roulette, setDisplay, winIndex, setWinWeapon) => {
     const randomExtra = Math.random() * (width - 7);
     const spinDistance = 40 * width - 160 + randomExtra;
 
-    const winWeapon = weapons[winIndex];
 
 
     const KeyFrames = new KeyframeEffect(
@@ -76,7 +74,9 @@ const doSpin = (weapons, roulette, setDisplay, winIndex, setWinWeapon) => {
             roulette: "roulette",
             button: "button",
         });
-        setWinWeapon(winWeapon)
+
+        setWinWeapon(winWeapon);
+        // console.log('Set win weapon', winWeapon)
         roulette.style = `left: -${spinDistance}px`;
         // resolve();
     }
@@ -87,11 +87,50 @@ const doSpin = (weapons, roulette, setDisplay, winIndex, setWinWeapon) => {
 }
 
 
+const handleWin = (line_weapons, winIndex) => {
+    // assemble the won weapon project
+    const winWeapon = {...line_weapons[winIndex]};
+
+    if (Object.keys(winWeapon).length === 0) {
+        console.warn('[CSGO] Can\'t add a weapon as an empty object');
+        return null;
+    }
+    
+    // give quality (multiplies the cost)
+    const qualities = {
+        0: ['Factory New'  , 2.00 ],
+        1: ['Minimal Wear' , 1.50 ],
+        2: ['Field Tested' , 1.00 ],
+        3: ['Well Worn'    , 0.75 ],
+        4: ['Battle Scared', 0.50 ],
+    }
+
+    let qt_chance = Math.floor(Math.random() * 5);
+    winWeapon.quality = qualities[qt_chance][0];
+
+    let price = parseFloat(winWeapon.price);
+    // winWeapon.market_price = winWeapon.price;
+
+    price *= (winWeapon.isStattrak ? 4 : 1); // if statrek give x5 value
+    price *= qualities[qt_chance][1]; // take in account quality
+    price *= (1.1 - ( Math.random() * 0.2 )); // * by random number between 0.9 and 1.1
+
+    price = parseFloat(price.toFixed(2));
+
+    winWeapon.price = price;
+
+    delete winWeapon.index;
+    delete winWeapon.statrak;
+    delete winWeapon.rarity;
 
 
-const RouletteLine = ({weapons, display, setDisplay, setWinWeapon, ...props}) => {
+    addWeapon(winWeapon)
+    return winWeapon;
+}
 
-    const weapon_size = 95; // size of the weapons's card in PX
+
+const RouletteLine = ({weapons, display, setDisplay, setWinWeapon, winWeapon, ...props}) => {
+
     const rouletteRef = useRef();
     const winIndex = 40; // the index of the win weapon in the line
     const anim = useRef(); // the animation object of the current spinning anim (to cancel / finish)
@@ -104,55 +143,14 @@ const RouletteLine = ({weapons, display, setDisplay, setWinWeapon, ...props}) =>
             let line_weapons = [];
             if (weapons.length) {
                 for (let i = 0; i < winIndex+5; i++) {
-                    line_weapons.push(getRandomWeapon(weapons, weapon_size, i));
+                    line_weapons.push(getRandomWeapon(weapons));
                 }
 
                 // can be used to rig the roulette and get the desired weapon
                 let rig = undefined; // the index of the weapon element to drop. If undefined then random
-                line_weapons[winIndex] = getRandomWeapon(weapons, weapon_size, -1, rig);
+                line_weapons[winIndex] = getRandomWeapon(weapons, rig);
             }
             setLineWeapons(line_weapons);
-
-            const handleWin = () => {
-                // assemble the won weapon project
-                const winWeapon = {...line_weapons[winIndex]};
-
-                if (Object.keys(winWeapon).length === 0) {
-                    console.warn('[CSGO] Can\'t add a weapon as an empty object');
-                    return null;
-                }
-                
-                // give quality (multiplies the cost)
-                const qualities = {
-                    0: ['Factory New'  , 2.00 ],
-                    1: ['Minimal Wear' , 1.50 ],
-                    2: ['Field Tested' , 1.00 ],
-                    3: ['Well Worn'    , 0.75 ],
-                    4: ['Battle Scared', 0.50 ],
-                }
-
-                let qt_chance = Math.floor(Math.random() * 5);
-                winWeapon.quality = qualities[qt_chance][0];
-
-                let price = parseFloat(winWeapon.price);
-                // winWeapon.market_price = winWeapon.price;
-
-                price *= (winWeapon.isStattrak ? 4 : 1); // if statrek give x5 value
-                price *= qualities[qt_chance][1]; // take in account quality
-                price *= (1.1 - ( Math.random() * 0.2 )); // * by random number between 0.9 and 1.1
-
-                price = parseFloat(price.toFixed(2));
-
-                winWeapon.price = price;
-
-                delete winWeapon.index;
-                delete winWeapon.statrak;
-                delete winWeapon.rarity;
-
-                addWeapon(winWeapon)
-                // console.log(winWeapon)
-            }
-            handleWin()
         }
     }, [props.button])
 
@@ -160,7 +158,8 @@ const RouletteLine = ({weapons, display, setDisplay, setWinWeapon, ...props}) =>
         if (lineWeapons.length === 0) {
             return ;
         }
-        anim.current = doSpin(lineWeapons, rouletteRef.current, setDisplay, winIndex, setWinWeapon);
+        const winWeapon = handleWin(lineWeapons, winIndex);
+        anim.current = doSpin(rouletteRef.current, setDisplay, setWinWeapon, winWeapon);
     }, [lineWeapons])
 
     useEffect( () => {

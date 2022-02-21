@@ -30,7 +30,7 @@
     --yellow: rgb(130 126 27);
     --red: rgb(104 56 56);
     --pink: rgb(110 59 83);
-    --purple: rgb(70 46 96);
+    --purple: rgb(50 40 76);
     --blue: rgb(53 53 110); 
 
     --color-gradient: transparent;
@@ -88,7 +88,7 @@
 
     > .price {
         position: absolute;
-        bottom: 20px;
+        bottom: 16px;
         left: 50%;
         right: 50%;
         
@@ -99,8 +99,11 @@
             white-space: nowrap;
 
             color: var(--blue-white-05);
-            font-size: 16px;
+            font-size: 20px;
             font-family: Arial, Helvetica, sans-serif;
+            // background-color: #2f313a;
+            text-shadow: 0 1px 3px black, 0 1px 3px black, 0 1px 3px black, 0 1px 3px black;
+            padding: 10px 30px;
         }
     }
 }

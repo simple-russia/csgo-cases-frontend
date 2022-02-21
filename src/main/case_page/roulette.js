@@ -57,6 +57,7 @@ const Roulette = (props) => {
     const enoughWeapons = props.weapons.length >= min_weapons;
 
     const [winWeapon, setWinWeapon] = useState({});
+    // useEffect( _ => console.log('Win weapon is', winWeapon), [winWeapon])
 
     const [display, setDisplay] = useState({ // for rendering the relevant components
         roulette: "case", // case for displaying the case img, roulette for roulette
@@ -86,6 +87,7 @@ const Roulette = (props) => {
                                                   display={display}
                                                   setDisplay={setDisplay}
                                                   button={display.button}
+                                                  winWeapon={winWeapon}
                                                   setWinWeapon={setWinWeapon}
                                                 /> : "" }
         </div>
@@ -95,7 +97,7 @@ const Roulette = (props) => {
             { display.button == "opening" ? <Opening /> : "" }
         </div>
 
-        {Object.keys(winWeapon).length ? <WinWeapon weapon={winWeapon} setWinWeapon={setWinWeapon} /> : ''}
+        {Object.keys(winWeapon).length ? <WinWeapon winWeapon={winWeapon} setWinWeapon={setWinWeapon} /> : ''}
         </div>
     )
 }

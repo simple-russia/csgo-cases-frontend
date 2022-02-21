@@ -29,28 +29,35 @@
 
     > p {
         text-align: center;
-        color: var(--blue-white-05);
+        color: #cfe1e2;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px !important;
+        font-size: 20px !important;
+        font-weight: bold;
         line-height: 150%;
-        background-color: var(--blue-black-15);
+        // background-color: var(--blue-black-15);
         margin: 0;
-        padding: 30px 45px;
+        padding: 60px 30px;
+        text-shadow: 0 2px 3px black;
 
         > span {
             display: inline-block;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.05em;
             margin: 0 3px;
             color: var(--blue-white-30);
+
+            --c: #2c5245;
+            color: #3baf64;
+            text-shadow: 0 2px 2px var(--c), 0 2px 2px var(--c), 0 2px 2px var(--c);
+    
         }
 
         > span:last-child::after {
             content: '$ ?';
             margin: 0 4px;
-            color: var(--blue-white-05);
+            color: #cfe1e2;
             font-size: 20px !important;
-            font-weight: normal;
+            text-shadow: 0 2px 3px black;
         }
     }
 }
@@ -66,7 +73,8 @@
     }
 
     > .sell-yes {
-        background-color: rgb(67, 109, 58);
+        background-color: var(--green-30);
+        background-image: var(--green-30-gradient);
     }
 
     > .sell-no {
@@ -94,7 +102,7 @@
         border-radius: 0;
 
         > .sell-modal-text > p {
-            padding: 45px 40px;
+            padding: 45px 20px;
         }
 
         > .sell-buttons {

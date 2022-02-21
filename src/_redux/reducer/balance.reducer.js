@@ -9,8 +9,13 @@ if (!balance) { // otherwise what html doc renders
 const balanceReducer = (state = balance, action) => {
 
     if (action.type == "CHANGE_BALANCE") {
-        let newbal = state + action.payload
-        return newbal;
+
+        if (typeof action.payload === 'number' && !isNaN(action.payload)) {
+            let newbal = state + action.payload
+            return newbal;
+        }
+        
+        console.warn('[CSGO] Can\' change the balance with a non-number value');
     }
 
     return state;

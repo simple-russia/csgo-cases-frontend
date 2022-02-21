@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 const SellModal = ({weapon, setSellModal, setWeapons, weapons, setActiveItem}) => {
 
     const dispatch = useDispatch();
+    const stattrak = weapon.isStattrak ? 'StatTrak™ ' : '';
 
     const cancel = () => {
         setSellModal('');
@@ -23,7 +24,7 @@ const SellModal = ({weapon, setSellModal, setWeapons, weapons, setActiveItem}) =
         <div className="sell-modal modal">
             <div>
                 <div className="sell-modal-text">
-                    <p>Are you sure you wanna sell <span>{weapon.type + ' | ' + weapon.style}</span> for <span>{weapon.price}</span></p>
+                    <p>Are you sure you wanna sell <span>{stattrak + weapon.type + ' | ' + weapon.style}</span> for <span>{weapon.price}</span></p>
                 </div>
 
                 <div className="sell-buttons">

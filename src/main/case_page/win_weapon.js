@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import './css/win_weapon.scss';
 
-const WinWeapon = ({weapon, setWinWeapon}) => {
-
-    weapon;
+const WinWeapon = ({winWeapon, setWinWeapon}) => {
+    
+    winWeapon;
     setWinWeapon;
-    const stattrak = weapon.isStattrak ? 'StatTrak™ ' : '';
+    const stattrak = winWeapon.isStattrak ? 'StatTrak™ ' : '';
     const host = "http://192.168.43.247/assets/";
 
 
@@ -14,21 +14,20 @@ const WinWeapon = ({weapon, setWinWeapon}) => {
         setWinWeapon({});
     }
 
-    console.log(weapon)
 
     return (
         <div className="modal win-weapon-modal">
             <div>
 
-                <div className={"win-weapon-main " + weapon.color_name.toLowerCase()}>
-                    <h1 className="name">{stattrak + `${weapon.type} | ${weapon.style}`}</h1>
+                <div className={"win-weapon-main " + winWeapon.color_name.toLowerCase()}>
+                    <h1 className="name">{stattrak + `${winWeapon.type} | ${winWeapon.style}`}</h1>
 
                     <main>
-                        <img src={host + weapon.imageurl} draggable="false" ></img>
+                        <img src={host + winWeapon.imageurl} draggable="false" ></img>
                     </main>
 
                     <div className='price'>
-                        <span>{`Price: ${weapon.price} $`}</span>
+                        <span>{`Price: ${winWeapon.price} $`}</span>
                     </div>
                 </div>
 

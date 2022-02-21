@@ -44,7 +44,7 @@ const ActiveItem = ({weapons, setWeapons, setActiveItem, activeItem, handleSell,
 
                 <div className="item-price-block">
                     <div className="price-block">Price: <span className="item-price">{activeItem.price}</span></div>
-                    <div className="sell-button" onClick={ () => handleSell(activeItem) }>
+                    <div className="sell-button button-1" onClick={ () => handleSell(activeItem) }>
                         Sell
                     </div>
                 </div>
