@@ -18,7 +18,14 @@ const Inventory = (props) => {
     const [sellModal, setSellModal] = useState('')
 
     const weaponSlice = weapons.slice( (page-1)*25, page*25 );
-    const max_page = Math.floor((weapons.length-1) / 25) + 1;
+    let max_page = Math.floor((weapons.length-1) / 25) + 1;
+    max_page = max_page === 0? 1 : max_page;
+
+    useEffect( () => {
+        if (page > max_page) {
+            updatePageNumber(max_page);
+        }
+    }, [weapons])
 
     const updatePageNumber = (new_page) => {
         if (typeof new_page === 'number' && !isNaN(new_page)) {

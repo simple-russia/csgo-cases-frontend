@@ -20,7 +20,8 @@
         position: absolute;
         top: 30%;
         border: 1px var(--blue-black-10) solid;
-        border-radius: 8px;
+        border-radius: 6px;
+        border: 1px solid #272c3a;
     }
 }
 
@@ -46,9 +47,9 @@
             margin: 0 3px;
             color: var(--blue-white-30);
 
-            --c: #2c5245;
-            color: #3baf64;
-            text-shadow: 0 2px 2px var(--c), 0 2px 2px var(--c), 0 2px 2px var(--c);
+            --c: #0e721e;
+            color: #45b15c;
+            text-shadow: 0 1.5px 1px var(--c), 0 1.5px 1px var(--c), 0 1.5px 2px var(--c);
     
         }
 
@@ -69,25 +70,38 @@
 
     > .sell-button {
         width: 45%;
-        font-size: 16px;
+        font-size: 12px;
+        padding: 8px 7px;
     }
 
     > .sell-yes {
         background-color: var(--green-30);
         background-image: var(--green-30-gradient);
+
+        &:hover {
+            filter: brightness(0.7);
+        }
+        &:active {
+            filter: brightness(0.5);
+        }
     }
 
     > .sell-no {
         background-color: transparent;
-        border: 1px rgb(114, 115, 116) solid;
+        border: 1px solid rgba(114, 115, 116, 0.8);
+        box-shadow: none;
         box-sizing: border-box;
-
+        background-image: none;
+        
         &:hover {
+            border: 1px solid transparent;
             filter: none;
             background-color: rgba(114, 115, 116, 0.8);
             color: #131418;
+            border: 1px solid rgba(114, 115, 116, 0.8);
         }
         &:active {
+            border: 1px solid transparent;
             background-color: rgba(66, 68, 71, 0.8);
             border: 1px rgba(66, 68, 71, 0.8) solid;
             color: #131418;
@@ -102,12 +116,12 @@
         border-radius: 0;
 
         > .sell-modal-text > p {
-            padding: 45px 20px;
+            padding: 65px 20px 45px;
         }
 
         > .sell-buttons {
             display: block;
-            padding: 20px 30px 20px;
+            padding: 20px 30px 40px;
 
             > div {
                 width: 100%;

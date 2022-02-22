@@ -83,7 +83,7 @@
 
 .mobile-price-block {
     position: absolute;
-    bottom: 17%;
+    bottom: 25%;
     width: 100%;
 
     > div {
@@ -93,6 +93,9 @@
         justify-content: center;
         align-items: center;
         background: #4a6e32;
+        background-color: var(--green-30);
+        background-image: var(--green-30-gradient);
+        box-shadow: inset 0 0 1px 1px rgb(255 255 255 / 25%);
         text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
         border-radius: 3px;
         padding: 7px 5px;
@@ -101,6 +104,14 @@
         color: #badfc6;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
+        user-select: none;
+
+        &:hover {
+            filter: brightness(0.7);
+        }
+        &:active {
+            filter: brightness(0.5);
+        }
     }
 
     > .mobile-price {

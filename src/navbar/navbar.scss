@@ -38,6 +38,11 @@ nav .logo-cont {
 
 }
 
+@media (max-width: 400px) {
+    nav .logo-cont {
+        width: 100px;
+    }
+}
 
 .link-cont {
     width: auto;

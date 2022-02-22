@@ -28,8 +28,8 @@ const SellModal = ({weapon, setSellModal, setWeapons, weapons, setActiveItem}) =
                 </div>
 
                 <div className="sell-buttons">
-                    <div onClick={sell} className="sell-yes sell-button button-1">sell</div>
-                    <div onClick={cancel} className="sell-no sell-button button-1">cancel</div>
+                    <div onClick={sell} className="sell-yes sell-button button-1">SELL</div>
+                    <div onClick={cancel} className="sell-no sell-button button-1">CANCEL</div>
                 </div>
             </div>
         </div>

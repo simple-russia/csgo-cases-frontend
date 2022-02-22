@@ -42,7 +42,7 @@
             color: white;
             padding: 1px 0 0;
             text-align: center;
-            font-size: 16px;
+            font-size: 14px;
 
             &:focus {
                 outline: none;
@@ -63,7 +63,7 @@
             background-color: #24243a;
             background-image:
                 linear-gradient(rgba(255, 255, 255, 0.2), transparent 75%);
-            box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.3);
+            box-shadow: inset 0 0 2px 0 rgba(255, 255, 255, 0.5), 0 0 2px 0 rgba(255, 255, 255, 0.3);
             border-radius: 5px;
             margin: 0 10px;
             outline: 1px solid rgb(22, 21, 22);
@@ -83,7 +83,7 @@
                 pointer-events: none;
                 filter: brightness(0.8);
                 background-color: #2f2f3a;
-                box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.5);
+                // box-shadow: inset 0 0 8px 0 rgba(0, 0, 0, 0.5);
             }
 
             > div {

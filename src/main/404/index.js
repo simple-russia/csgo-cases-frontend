@@ -1,8 +1,12 @@
 import React from "react";
+import Loading from 'Components/loading';
 
 const NotFound = (props) => {
 
-    return <h1>The page hasn't been found!</h1>
+    return (<>
+        <Loading />
+        <h1>The page hasn't been found!</h1>
+    </>) 
 }
 
 export default NotFound;
