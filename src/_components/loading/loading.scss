@@ -1,18 +1,36 @@
-> div.loading-component {
+
+.loading-main-cont {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.loading-component {
     width: auto;
     background-color: #141a30;
     border-radius: 5px;
     padding: 25px 40px 25px;
     box-sizing: border-box;
     position: relative;
+    display: inline-block;
+    border: 1px solid #2c303f;
+
+    box-shadow: 0 0 30px 0 #020214d6;
+    background-image: linear-gradient(17deg, #21122088, transparent);
+    user-select: none;
 
     > span {
         margin: auto;
         display: inline-block;
         color: #9e8fc4;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 10px;
+
+        // background: -webkit-linear-gradient(45deg, #09009f, #00ff95 80%);
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
 
         &::after {
             // position: relative;

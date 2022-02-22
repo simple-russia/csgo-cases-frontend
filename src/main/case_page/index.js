@@ -5,13 +5,14 @@ import axios from 'axios';
 import Roulette from './roulette';
 import Showcase from './showcase';
 import Translate from 'Translator/tr';
+import Loading from 'Components/loading';
 
 const Case = (props) => {
 
     const { name } = useParams();
     const [ _case, setCase ] = useState({
         "case": {}, // represents the case obj
-        "weapons": [], // represents the list of weapons
+        "weapons": 'loading', // represents the list of weapons
     });
 
     // fetch the case
@@ -27,7 +28,7 @@ const Case = (props) => {
 
             setCase({
                 "case": {...the_case},
-                "weapons": [],
+                "weapons": 'loading',
             })
         })
     }, [])
@@ -35,7 +36,7 @@ const Case = (props) => {
     // fetch the belonging weapons
     useEffect( () => {
         let case_empty = !(Object.keys(_case.case).length) // is case empty?
-        let weapons_empty = !_case.weapons.length // is weapons array empty?
+        let weapons_empty = _case.weapons === 'loading'; // is weapons array empty?
 
         if (case_empty || !weapons_empty) {
             // if the case is empty, that is not found, don't do anything.
@@ -58,6 +59,10 @@ const Case = (props) => {
         })
         
     }, [_case.case])
+
+    if (_case.weapons === 'loading') {
+        return <Loading name="the case" />
+    }
 
     return (
         <div style={{"--drop-text": `"${Translate('cases/possible-drop')}:"` }} >

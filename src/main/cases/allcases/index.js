@@ -3,11 +3,12 @@ import './allcases.scss';
 import Sepatator from "Components/sepatator";
 import Case from "./case";
 import axios from "axios";
+import Loading from 'Components/loading';
 
 
 const AllCases = (props) => {
 
-    const [caseList, setCaseList] = useState([])
+    const [caseList, setCaseList] = useState('loading')
 
     useEffect( () => {
         // fetch data
@@ -19,6 +20,10 @@ const AllCases = (props) => {
         )
 
     }, [])
+
+    if (caseList === 'loading') {
+        return <Loading name="cases" />
+    }
 
     return (
         <div className="all-cases ">

@@ -5,7 +5,7 @@
     --blue-white-10: #bcbccf;
     --blue-white-30: #8c9fb6;
     --blue-white-50: rgb(98, 97, 141);
-    --blue-black-05: #07060ffa;
+    --blue-black-05: #07060fff;
     --blue-black-10: #11111bff;
     --blue-black-15: #1b1b29ff;
 
@@ -72,7 +72,8 @@ animation-timing-function: ease-out; */
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background-color: var(--blue-black-05);
+    background-color: #07060fc4;
+    backdrop-filter: blur(8px);
     top: 0;
     left: 0;
     z-index: 30;

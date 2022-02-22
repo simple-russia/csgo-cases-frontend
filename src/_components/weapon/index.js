@@ -12,7 +12,7 @@ const Weapon = ({data, ...props}) => {
             <div className="weapon-card-img-cont">
                 <img src={host + data.imageurl} draggable="false" ></img>
             </div>
-            <div className={"label " + data.color.toLowerCase()}>
+            <div className={"label " + data.color.toLowerCase()} style={{'--size': props.size+5 + 'px'}} >
                 <span className="type" >{stattrak + data.type}</span>
                 <span className="style" >{data.style}</span>
             </div>

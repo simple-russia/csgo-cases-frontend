@@ -3,7 +3,8 @@
 .navbar {
     width: 100%;
     height: 60px;
-    background-color: #080b16;
+    background-color: #0c0c15de;
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid #26263a;
 
     position: fixed;
