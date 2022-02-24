@@ -18,7 +18,7 @@
         box-sizing: border-box;
         background-color: var(--blue-black-10);
         position: absolute;
-        top: 30%;
+        top: 20%;
         border: 1px var(--blue-black-10) solid;
         border-radius: 6px;
         border: 1px solid #272c3a;
@@ -38,7 +38,7 @@
         // background-color: var(--blue-black-15);
         margin: 0;
         padding: 60px 30px;
-        text-shadow: 0 2px 3px black;
+        text-shadow: 0 2px 2px #8b9984;
 
         > span {
             display: inline-block;
@@ -58,7 +58,7 @@
             margin: 0 4px;
             color: #cfe1e2;
             font-size: 20px !important;
-            text-shadow: 0 2px 3px black;
+            text-shadow: 0 2px 2px #8b9984;
         }
     }
 }

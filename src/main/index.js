@@ -26,10 +26,10 @@ const Main = (props) => {
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/:name" element={<Case />} />
           <Route path="/inventory" element={<Inventory />} />
-          <Route path="/contracts" element={<Contracts />} />
+          {/* <Route path="/contracts" element={<Contracts />} />
           <Route path="/about" element={<About />} />
           <Route path="/statistics" element={<Statistics />} />
-          <Route path="/balance" element={<Balance />} />
+          <Route path="/balance" element={<Balance />} /> */}
           
           <Route path="*" element={<NotFound />} />
         </Routes>

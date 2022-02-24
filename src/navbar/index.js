@@ -45,7 +45,7 @@ const Navbar = (props) => {
     resize_check();
     childrenWidthCheck();
     window.addEventListener('resize', resize_check);
-    document.addEventListener('click', closeOutClick);
+    window.addEventListener('click', closeOutClick);
 
   }, [])
 
@@ -54,11 +54,12 @@ const Navbar = (props) => {
   }
 
   const closeOutClick = (e) => { // for when user clicks outside the dropdown block
+    console.log('aaa')
     for (let i of document.body.querySelectorAll(".dropdown-cont") ) { 
-      if (i.contains(e.target)) { return ; }
+      if (i.contains(e.target)) { console.log(1); return ; }
     };
-    for (let element of document.body.querySelectorAll(".icon-cont")) {
-      if (element.contains(e.target)) { return ; }
+    for (let element of document.body.querySelectorAll(".navbar .icon-cont")) {
+      if (element.contains(e.target)) { console.log(2); return ; }
     }
 
     closeDropdown();
