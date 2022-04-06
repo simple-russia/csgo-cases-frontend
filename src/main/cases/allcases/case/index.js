@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Case = ({data, ...props}) => {
 
-    const hostname = "http://192.168.43.247:80/assets"
+    const hostname = "http://192.168.43.247:80/assets/"
 
     return (
         <NavLink className="case" to={`${data.link_name}`}>

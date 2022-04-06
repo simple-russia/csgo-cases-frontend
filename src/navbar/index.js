@@ -54,7 +54,7 @@ const Navbar = (props) => {
   }
 
   const closeOutClick = (e) => { // for when user clicks outside the dropdown block
-    console.log('aaa')
+
     for (let i of document.body.querySelectorAll(".dropdown-cont") ) { 
       if (i.contains(e.target)) { console.log(1); return ; }
     };

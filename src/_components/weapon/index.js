@@ -3,7 +3,7 @@ import './weapon.scss';
 
 const Weapon = ({data, ...props}) => {
 
-    const host = "http://192.168.43.247:80/assets";
+    const host = "http://192.168.43.247:80/assets/";
     const stattrak = data.isStattrak ? 'StatTrak™ ' : '';
 
     // props.size - the width and height of the weapon card.
